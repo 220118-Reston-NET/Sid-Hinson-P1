@@ -8,3 +8,4 @@ StoreDL/[dep]Repo_Old/[dep]ProductsRepository.cs
 StoreDL/[dep]Repo_Old/[dep]OrdersRepository.cs
 StoreDL/[dep]Repo_Old/[dep]IRepository.cs
 StoreDL/[dep]Repo_Old/SQL_Example_Model
+StoreApi/appsettings.json
