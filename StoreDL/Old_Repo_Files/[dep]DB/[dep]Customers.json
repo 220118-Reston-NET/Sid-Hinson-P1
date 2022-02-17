@@ -1,0 +1,28 @@
+[
+  {
+    "CustomerID": 1,
+    "CFirstName": "John",
+    "CLastName": "Doe",
+    "CDateofBirth": "010180",
+    "CustomerAddress": "111 Street St",
+    "CustomerCity": "Macon",
+    "CustomerState": "GA",
+    "CustomerZipcode": "55555",
+    "CustCountry": "USA",
+    "CustomerEmail": "john@aol.com",
+    "CPassword": "john@aol.com"
+  },
+  {
+    "CustomerID": 2,
+    "CFirstName": "Jane",
+    "CLastName": "Doe",
+    "CDateofBirth": "010180",
+    "CustomerAddress": "111 Street St",
+    "CustomerCity": "Macon",
+    "CustomerState": "GA",
+    "CustomerZipcode": "55555",
+    "CustCountry": "USA",
+    "CustomerEmail": "jane@aol.com",
+    "CPassword": "jane@aol.com"
+  }
+]

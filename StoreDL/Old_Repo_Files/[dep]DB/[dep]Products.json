@@ -1,0 +1,32 @@
+[
+  {
+    "ProductID": 0,
+    "StoreID": 1,
+    "ProductName": "SNES",
+    "ProductCompany": "Nintendo",
+    "ProductPrice": 150,
+    "ProductDescription": "Super Nes 16bit Gaming System",
+    "ProductCategory": "System",
+    "ProductSTQuantity": 10
+  },
+  {
+    "ProductID": 0,
+    "StoreID": 2,
+    "ProductName": "SNES",
+    "ProductCompany": "Nintendo",
+    "ProductPrice": 150,
+    "ProductDescription": "Super Nes 16bit Gaming System",
+    "ProductCategory": "System",
+    "ProductSTQuantity": 10
+  },
+  {
+    "ProductID": 0,
+    "StoreID": 3,
+    "ProductName": "SNES",
+    "ProductCompany": "Nintendo",
+    "ProductPrice": 150,
+    "ProductDescription": "Super Nes 16bit Gaming System",
+    "ProductCategory": "System",
+    "ProductSTQuantity": 10
+  }
+]
