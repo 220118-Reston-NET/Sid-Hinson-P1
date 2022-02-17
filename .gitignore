@@ -1,0 +1,10 @@
+bin
+obj
+.vscode/
+StoreDL/[dep]Repo_Old/
+StoreUI/appsettings.json
+StoreDL/[dep]Repo_Old/[dep]StoreFrontsRepository.cs
+StoreDL/[dep]Repo_Old/[dep]ProductsRepository.cs
+StoreDL/[dep]Repo_Old/[dep]OrdersRepository.cs
+StoreDL/[dep]Repo_Old/[dep]IRepository.cs
+StoreDL/[dep]Repo_Old/SQL_Example_Model
