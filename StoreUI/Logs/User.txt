@@ -4811,3 +4811,22 @@
 2022-02-17 13:39:40.087 -05:00 [INF] User is selecting Check Product Level
 2022-02-17 13:41:54.414 -05:00 [INF] Displaying Admin Products Menu to user
 2022-02-17 13:41:54.426 -05:00 [INF] User is inputting the Menu Selection
+2022-02-17 14:11:10.010 -05:00 [INF] User is pressing enter to go to Main Program Menu
+2022-02-17 14:11:24.213 -05:00 [INF] User is selection an input
+2022-02-17 14:11:31.138 -05:00 [INF] User is selecting Administration Menu
+2022-02-17 14:11:31.141 -05:00 [INF] User is making a Selection
+2022-02-17 14:11:34.850 -05:00 [INF] User is selecting New Customers Menu
+2022-02-17 14:11:34.854 -05:00 [INF] Displaying New Customer Menu to user
+2022-02-17 14:11:34.880 -05:00 [INF] User is inputting a selection
+2022-02-17 14:11:37.210 -05:00 [INF] User is exiting to Store Main Menu
+2022-02-17 14:11:37.210 -05:00 [INF] Displaying Main Menu to user
+2022-02-17 14:11:37.212 -05:00 [INF] User is selection an input
+2022-02-17 14:11:39.413 -05:00 [INF] User is selecting Customers Menu
+2022-02-17 14:11:39.413 -05:00 [INF] Displaying Customers Menu to user
+2022-02-17 14:11:39.433 -05:00 [INF] User is selecting an input
+2022-02-17 14:11:40.955 -05:00 [INF] User is selecting New Customers Menu
+2022-02-17 14:11:40.955 -05:00 [INF] Displaying New Customer Menu to user
+2022-02-17 14:11:40.966 -05:00 [INF] User is inputting a selection
+2022-02-17 14:11:50.877 -05:00 [INF] User is exiting to Store Main Menu
+2022-02-17 14:11:50.877 -05:00 [INF] Displaying Main Menu to user
+2022-02-17 14:11:50.885 -05:00 [INF] User is selection an input

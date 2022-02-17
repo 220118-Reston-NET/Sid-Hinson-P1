@@ -37,7 +37,7 @@ namespace StoreUI
             Console.WriteLine("=[10] -  Password : " + _newCustomer.CPassword);
             Console.WriteLine("=[11] -  Update & Save Information");
             Console.WriteLine("===============================================");
-            Console.WriteLine("=!Press Number + Enter to input Selected Info!=");
+            Console.WriteLine("=   Press Number to Enter Your Information    =");
             Console.WriteLine("===============================================");
         }
         
