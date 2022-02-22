@@ -53,7 +53,7 @@ namespace StoreUI
                     p_Email = p_Email.ToUpper();
 
                     //Search for Customer
-                    List<Customers> listofcustomers = _custBL.SearchCustomers(p_Fname, p_Lname, p_Email);
+                    List<Customers> listofcustomers = _custBL.SearchCustomersByNameEmail(p_Fname, p_Lname, p_Email);
                     if(listofcustomers.Any())
                     {
                         foreach (var Customer in listofcustomers)

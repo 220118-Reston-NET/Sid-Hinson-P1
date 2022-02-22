@@ -15,14 +15,23 @@ namespace StoreBL
         /// </summary>
         /// <param name="p_name"></param>
         /// <returns>Filtered Search Results </returns>
-        List<Customers> SearchCustomers(string p_name1, string p_name2, string p_email);
+        /// 
+        List<Customers> SearchCustomersByName(string p_fname, string p_lname);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_name1"></param>
+        /// <param name="p_name2"></param>
+        /// <param name="p_email"></param>
+        /// <returns></returns>
+        List<Customers> SearchCustomersByNameEmail(string p_name1, string p_name2, string p_email);
         /// <summary>
         /// Searches for Customers
         /// </summary>
         /// <param name="p_fname"></param>
         /// <param name="p_lname"></param>
         /// <returns></returns>
-        List<Customers> SearchForCustomers(string p_fname, string p_lname, string p_city, string p_state);
+        List<Customers> SearchForCustomersNameLocation(string p_fname, string p_lname, string p_city, string p_state);
         /// <summary>
         /// Gets All Customers
         /// </summary>

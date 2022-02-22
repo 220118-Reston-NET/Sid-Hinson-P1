@@ -152,7 +152,7 @@ namespace StoreUI
                     Console.WriteLine("Please enter Customer State:");
                     string p_s = Console.ReadLine();
                     p_s = p_s.ToUpper();
-                    List<Customers> searchcust = _custBL.SearchForCustomers(p_f,p_l,p_c,p_s);
+                    List<Customers> searchcust = _custBL.SearchForCustomersNameLocation(p_f,p_l,p_c,p_s);
                     if(searchcust.Any())
                     {
                         Console.Clear();

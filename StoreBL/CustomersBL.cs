@@ -18,7 +18,16 @@ namespace StoreBL
             return _repo.AddCustomers(p_cust);
         }
 
-        public List<Customers> SearchCustomers(string p_fname, string p_lname, string p_email)
+        public List<Customers> SearchCustomersByName(string p_fname, string p_lname)
+        {
+        List<Customers> listofcustomers = _repo.GetAllCustomers();
+        return listofcustomers
+                    .Where(Customers => Customers.CFirstName.Contains(p_fname))
+                    .Where(Customers => Customers.CLastName.Contains(p_lname))
+                    .ToList(); 
+        }
+
+        public List<Customers> SearchCustomersByNameEmail(string p_fname, string p_lname, string p_email)
         {
         List<Customers> listofcustomers = _repo.GetAllCustomers();
         return listofcustomers
@@ -28,7 +37,7 @@ namespace StoreBL
                     .ToList(); 
         }
 
-        public List<Customers> SearchForCustomers(string p_fname, string p_lname, string p_city, string p_state)
+        public List<Customers> SearchForCustomersNameLocation(string p_fname, string p_lname, string p_city, string p_state)
         {
             List<Customers> listofcustomers = _repo.GetAllCustomers();
             return listofcustomers
