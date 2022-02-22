@@ -65,15 +65,15 @@ namespace StoreDL
                 //7.Now it is time to pass in the parameters we defined earlier with the correct class values/fields
                 //You are essentially mapping the Parameters with the value to insert
 
-                command.Parameters.AddWithValue("@CFirstName", p_cust.CFirstName);
-                command.Parameters.AddWithValue("@CLastName", p_cust.CLastName);
-                command.Parameters.AddWithValue("@CDateofBirth", p_cust.CDateofBirth);
-                command.Parameters.AddWithValue("@CustomerAddress", p_cust.CustomerAddress);
-                command.Parameters.AddWithValue("@CustomerState", p_cust.CustomerState);
-                command.Parameters.AddWithValue("@CustomerCity", p_cust.CustomerCity);
-                command.Parameters.AddWithValue("@CustomerZipCode", p_cust.CustomerZipcode);
-                command.Parameters.AddWithValue("@CustCountry", p_cust.CustCountry);
-                command.Parameters.AddWithValue("@CustomerEmail",p_cust.CustomerEmail);
+                command.Parameters.AddWithValue("@CFirstName", p_cust.CFirstName.ToUpper());
+                command.Parameters.AddWithValue("@CLastName", p_cust.CLastName.ToUpper());
+                command.Parameters.AddWithValue("@CDateofBirth", p_cust.CDateofBirth.ToUpper());
+                command.Parameters.AddWithValue("@CustomerAddress", p_cust.CustomerAddress.ToUpper());
+                command.Parameters.AddWithValue("@CustomerState", p_cust.CustomerState.ToUpper());
+                command.Parameters.AddWithValue("@CustomerCity", p_cust.CustomerCity.ToUpper());
+                command.Parameters.AddWithValue("@CustomerZipCode", p_cust.CustomerZipcode.ToUpper());
+                command.Parameters.AddWithValue("@CustCountry", p_cust.CustCountry.ToUpper());
+                command.Parameters.AddWithValue("@CustomerEmail",p_cust.CustomerEmail.ToUpper());
                 command.Parameters.AddWithValue("@CPassword", p_cust.CPassword);
                 //^This Method was introduced to combat SQL Injection Black Hat Hacking 
 
