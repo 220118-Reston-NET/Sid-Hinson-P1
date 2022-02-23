@@ -10,7 +10,7 @@ using StoreModel;
 
 namespace StoreApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("Project1api/[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
@@ -84,16 +84,16 @@ namespace StoreApi.Controllers
             }
         }
 
-        // PUT: api/Customers/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        // // PUT: api/Customers/5
+        // [HttpPut("{id}")]
+        // public void Put(int id, [FromBody] string value)
+        // {
+        // }
 
-        // DELETE: api/Customers/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        // // DELETE: api/Customers/5
+        // [HttpDelete("{id}")]
+        // public void Delete(int id)
+        // {
+        // }
     }
 }
