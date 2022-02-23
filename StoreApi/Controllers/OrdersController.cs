@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -22,19 +23,20 @@ namespace StoreApi.Controllers
         }
 
 
-        // // GET: api/Orders
-        // [HttpGet]
-        // public IEnumerable<string> Get()
-        // {
-        //     return new string[] { "value1", "value2" };
-        // }
 
-        // // GET: api/Orders/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
+
+        [HttpGet("GetFullOrdersHistory")]
+        public IActionResult GetComprehensiveOrderHistory(int p_customerID)
+        {
+             try
+            {
+                return Ok(_ordbl.GetCompOrderHist(p_customerID));
+            }
+            catch (SqlException)
+            {
+                return NotFound();
+            }
+        }
 
         // // POST: api/Orders
         // [HttpPost]

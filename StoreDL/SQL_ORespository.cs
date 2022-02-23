@@ -11,15 +11,17 @@ namespace StoreDL
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_ord"></param>
-        /// <returns></returns>
+
+
+
+
         public Orders AddOrders(Orders p_ord)
         {
             string sqlQuery = @"insert into Orders 
                                 values (@OrderCustID, @OrderStoreID, @OrderDate, @OrderTotal, @OrderStatus)";
+
+
+
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {                      
                 con.Open();
@@ -37,11 +39,9 @@ namespace StoreDL
             }
             return p_ord;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_ordID"></param>
-        /// <param name="p_stat"></param>
+
+
+
         public void UpdateOrdStat(int p_ordID, string p_stat)
         {
             Console.WriteLine("Changing Order Status");
@@ -61,11 +61,12 @@ namespace StoreDL
             }
         
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_line"></param>
-        /// <returns></returns>
+
+
+
+
+
+
         public LineItems AddLineItems(LineItems p_line)
         {
             string sqlQuery = @"insert into LineItems 
@@ -82,10 +83,13 @@ namespace StoreDL
             }
             return p_line;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+
+
+
+
+
+
+
         public List<Orders> GetAllOrders()
         {
             List<Orders> listoforders = new List<Orders>();
@@ -110,10 +114,12 @@ namespace StoreDL
             }
             return listoforders;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+
+
+
+
+
+
         public List<Orders> GetCompOrderHist(int p_custID)
         {
 
@@ -140,19 +146,25 @@ namespace StoreDL
                                 OrderDate = reader.GetString(3),
                                 OrderTotal = Convert.ToDouble(reader.GetDecimal(4)),
                                 OrderStatus = reader.GetString(5),
-                                ProductID = reader.GetInt32(6),
-                                ProductQuantity = reader.GetInt32(7),
-                                ProductName = reader.GetString(8),
-                                CLastName = reader.GetString(9),
+
+                                // ProductID = reader.GetInt32(6),
+                                // ProductQuantity = reader.GetInt32(7),
+                                // ProductName = reader.GetString(8),
+                                // CLastName = reader.GetString(9),
+
+
                                 });
                     }
             }
+
             return listoforders;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+ 
+
+
+
+
+
         public List<LineItems> GetAllLineItems()
         {
             List<LineItems> listoflineitems = new List<LineItems>();
@@ -178,6 +190,13 @@ namespace StoreDL
                 }
             return listoflineitems;
         }  
+
+
+
+
+
+
+
     }
 }
 

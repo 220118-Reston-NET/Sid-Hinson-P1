@@ -13,7 +13,6 @@ namespace StoreModel
        public int ProductQuantity { get; set; }
        public string ProductName { get; set; }
        public string CLastName { get; set; }
-       /// 
        public List<LineItems> OrderLineItems { get; set;}
        public double OrderTotal { get; set; }
        

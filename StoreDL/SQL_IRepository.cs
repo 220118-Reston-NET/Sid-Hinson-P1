@@ -72,12 +72,13 @@ namespace StoreDL
 
         public interface ISQL_ORepository
     {
-        /// <summary>
-        /// Add Orders to DB
-        /// </summary>
-        /// <param name="p_ord"></param> Customer Object
-        /// <returns>Order Added</returns>
+        // /// <summary>
+        // /// Add Orders to DB
+        // /// </summary>
+        // /// <param name="p_ord"></param> Customer Object
+        // /// <returns>Order Added</returns>
         public Orders AddOrders(Orders p_ord);
+
         /// <summary>
         /// Will Get All Orders in DB
         /// </summary>

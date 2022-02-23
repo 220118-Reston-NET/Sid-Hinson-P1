@@ -54,11 +54,11 @@ namespace StoreApi.Controllers
         
         // POST: api/AddCustomers
         [HttpPost("AddCustomers")]
-        public IActionResult Post([FromBody] Customers p_cust)
+        public IActionResult AddCustomers([FromQuery] Customers p_cust)
         {
             try
             {
-                return Ok(_custbl.AddCustomers(p_cust));
+                return Created("Success", _custbl.AddCustomers(p_cust));
             }
             catch (System.Exception)
             {
