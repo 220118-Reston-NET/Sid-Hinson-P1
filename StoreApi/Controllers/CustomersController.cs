@@ -10,7 +10,7 @@ using StoreModel;
 
 namespace StoreApi.Controllers
 {
-    [Route("Project1api/[controller]")]
+    [Route("store-api/[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
@@ -19,6 +19,7 @@ namespace StoreApi.Controllers
         {
             _custbl = p_custbl;
         }
+
 
         // GET: api/Customers
         // [HttpGet("GetAllCustomers")]
