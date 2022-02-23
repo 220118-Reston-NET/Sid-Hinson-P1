@@ -19,38 +19,6 @@ namespace StoreApi.Controllers
         {
             _custbl = p_custbl;
         }
-
-
-        // GET: api/Customers
-        // [HttpGet("GetAllCustomers")]
-        // public IActionResult GetAllCustomers()
-        // {
-
-        //     try
-        //     {
-        //         return Ok(_custbl.GetAllCustomers());
-        //     }
-        //     catch (SqlException)
-        //     {
-        //         return NotFound();
-        //     }
-            
-        // }
-
-        // // GET: api/Customers
-        // [HttpGet]
-        // public IEnumerable<string> Get()
-        // {
-        //     return new string[] { "value1", "value2" };
-        // }
-
-        // // GET: api/Customers/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
-
         
         // POST: api/AddCustomers
         [HttpPost("AddCustomers")]
@@ -85,16 +53,5 @@ namespace StoreApi.Controllers
             }
         }
 
-        // // PUT: api/Customers/5
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody] string value)
-        // {
-        // }
-
-        // // DELETE: api/Customers/5
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
     }
 }

@@ -21,14 +21,7 @@ namespace StoreBL
         public Orders AddOrders(Orders p_order)
         {
             List<Orders> listoforders = _repo.GetAllOrders();
-            if(listoforders.Count < 1000)
-            {
-                return _repo.AddOrders(p_order);
-            }
-            else
-            {
-                throw new Exception("Limit of 1000 Orders is reached");
-            }
+            return _repo.AddOrders(p_order);
         }
 
         public List<Orders> SearchStoreOrders(int p_storeID, string p_status)
