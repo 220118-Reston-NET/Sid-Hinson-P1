@@ -7,7 +7,6 @@ namespace StoreModel
        public int OrderStoreID { get; set; }
        public string OrderDate { get; set; }
        public string OrderStatus { get; set; }
-       public List<LineItems> OrderLineItems { get; set; }
        public double OrderTotal { get; set; }
 
         public Orders()
@@ -16,7 +15,6 @@ namespace StoreModel
             OrderStoreID = 0;
             OrderDate = "";
             OrderTotal = 0.00;
-            OrderLineItems = new List<LineItems>(){ new LineItems() };
             OrderStatus = "";
         
         }

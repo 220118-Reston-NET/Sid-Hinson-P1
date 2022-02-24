@@ -26,7 +26,6 @@ namespace StoreDL
                                 SET  ProductQuantity = ProductQuantity - @ProductQuantity
                                 WHERE StoreID = @StoreID and ProductID = @ProductID";
 
-
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {                      
                 con.Open();

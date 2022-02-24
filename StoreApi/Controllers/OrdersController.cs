@@ -23,20 +23,34 @@ namespace StoreApi.Controllers
         }
 
 
-
-
-        [HttpGet("GetFullOrdersHistory")]
-        public IActionResult GetComprehensiveOrderHistory(int p_customerID)
+        //POST AddOrders
+        [HttpPost("AddOrders")]
+        public IActionResult AddOrders([FromQuery] Orders p_ord,[FromQuery] List<LineItems> _shoppingcart)
         {
-             try
+            try
             {
-                return Ok(_ordbl.GetCompOrderHist(p_customerID));
+                return Created("Success", _ordbl.AddOrders(p_ord, _shoppingcart));
             }
-            catch (SqlException)
+            catch (System.Exception)
             {
-                return NotFound();
+                return BadRequest();
             }
+
         }
+
+
+        // [HttpGet("GetFullOrdersHistory")]
+        // public IActionResult GetComprehensiveOrderHistory(int p_customerID)
+        // {
+        //      try
+        //     {
+        //         return Ok(_ordbl.GetCompOrderHist(p_customerID));
+        //     }
+        //     catch (SqlException)
+        //     {
+        //         return NotFound();
+        //     }
+        // }
 
         // // POST: api/Orders
         // [HttpPost]
