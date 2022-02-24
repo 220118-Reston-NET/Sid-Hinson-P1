@@ -2,12 +2,12 @@ using System.Data.SqlClient;
 using StoreModel;
 namespace StoreDL
 {
-    public class SQL_ORepository : ISQL_ORepository
+    public class SQLORepository : ISQLORepository
     {
 
 
         private readonly string _ConnectionStrings;
-        public SQL_ORepository(string p_ConnectionStrings)
+        public SQLORepository(string p_ConnectionStrings)
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
@@ -48,11 +48,9 @@ namespace StoreDL
                     command.Parameters.AddWithValue("@ProductID", item.ProductID);
                     command.Parameters.AddWithValue("@ProductQuantity", item.ProductQuantity);
                     command.ExecuteNonQuery();
-                }
 
                 //Update Values in Inventory With Correct Value
-                foreach(LineItems item in _shoppingcart)
-                {
+
                     command =  new SqlCommand(sqlQuery3, con);
                     command.Parameters.AddWithValue("@StoreID", p_ord.OrderStoreID);
                     command.Parameters.AddWithValue("@ProductID", item.ProductID);
@@ -122,7 +120,7 @@ namespace StoreDL
 
 
 
-        public List<Orders> GetOrderHist(int p_ordCustID)
+        public List<Orders> GetOrdersHistory(int p_ordCustID)
         {
             List<Orders> listoforders = new List<Orders>();
             string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus  
@@ -149,7 +147,9 @@ namespace StoreDL
             }
             return listoforders;
         }
- 
+
+
+
 
 
 

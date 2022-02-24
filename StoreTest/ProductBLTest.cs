@@ -31,7 +31,7 @@ namespace StoreTest
             expectedlistofprod.Add(Product1);
 
             //Mock The Repo that is a dependency
-            Mock<ISQL_PRepository> mockRepo = new Mock<ISQL_PRepository>();
+            Mock<ISQLPRepository> mockRepo = new Mock<ISQLPRepository>();
             //Mock GetAllProducts
             mockRepo.Setup(repo => repo.GetAllProducts()).Returns(expectedlistofprod);
 

@@ -147,7 +147,7 @@ namespace StoreBL
         /// </summary>
         /// <param name="p_custID"></param>
         /// <returns></returns>
-        public List<Orders> GetCompOrderHist(int p_custID);
+        public List<Orders> GetOrdersHistory(int p_custID);
         /// <summary>
         /// Add Line Items to Repo
         /// </summary>

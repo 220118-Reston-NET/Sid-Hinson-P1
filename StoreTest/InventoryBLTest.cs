@@ -33,7 +33,7 @@ namespace StoreTest
             expectedlistinv.Add(Inventory1);
 
             //Mock The Repo that is a dependency
-            Mock<ISQL_InvRepository> mockRepo = new Mock<ISQL_InvRepository>();
+            Mock<ISQLInvRepository> mockRepo = new Mock<ISQLInvRepository>();
             //Mock GetAllInventorys
             mockRepo.Setup(repo => repo.GetAllInventory()).Returns(expectedlistinv);
 

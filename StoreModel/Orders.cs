@@ -7,6 +7,7 @@ namespace StoreModel
        public int OrderStoreID { get; set; }
        public string OrderDate { get; set; }
        public string OrderStatus { get; set; }
+       public List<LineItems> OrderLineItems { get; set; }
        public double OrderTotal { get; set; }
 
         public Orders()
@@ -14,8 +15,10 @@ namespace StoreModel
             OrderCustID = 0;
             OrderStoreID = 0;
             OrderDate = "";
-            OrderTotal = 0.00;
             OrderStatus = "";
+            OrderLineItems = new List<LineItems>(){ new LineItems() };
+            OrderTotal = 0.00;
+            
         
         }
         public override string ToString()

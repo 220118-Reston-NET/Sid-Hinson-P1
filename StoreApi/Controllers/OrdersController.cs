@@ -39,18 +39,19 @@ namespace StoreApi.Controllers
         }
 
 
-        // [HttpGet("GetFullOrdersHistory")]
-        // public IActionResult GetComprehensiveOrderHistory(int p_customerID)
-        // {
-        //      try
-        //     {
-        //         return Ok(_ordbl.GetCompOrderHist(p_customerID));
-        //     }
-        //     catch (SqlException)
-        //     {
-        //         return NotFound();
-        //     }
-        // }
+        [HttpGet("GetOrdersHistory")]
+        public IActionResult GetOrdersHistory(int p_ordCustID)
+        {
+            try
+            {
+                return Ok(_ordbl.GetOrdersHistory(p_ordCustID));
+            }
+            catch (SqlException)
+            {
+                return NotFound();
+            }
+        }
+
 
         // // POST: api/Orders
         // [HttpPost]

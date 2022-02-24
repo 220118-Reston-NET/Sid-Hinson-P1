@@ -5,8 +5,8 @@ namespace StoreBL
 {
     public class OrdersBL : IOrdersBL
     {
-        private ISQL_ORepository _repo;
-        public OrdersBL(ISQL_ORepository p_repo)
+        private ISQLORepository _repo;
+        public OrdersBL(ISQLORepository p_repo)
         {
             
             _repo = p_repo;
@@ -75,12 +75,10 @@ namespace StoreBL
 
 
 
-        public List<Orders> GetCompOrderHist(int p_custID)
+        public List<Orders> GetOrdersHistory(int p_custID)
         {
-            return _repo.GetOrderHist(p_custID);
+            return _repo.GetOrdersHistory(p_custID);
         }
-
-
 
         public LineItems AddLineItems(LineItems p_line)
         {

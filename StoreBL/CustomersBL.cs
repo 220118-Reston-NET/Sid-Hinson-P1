@@ -6,8 +6,8 @@ namespace StoreBL
 
     public class CustomersBL : ICustomersBL
     {
-        private ISQL_CRepository _repo;
-        public CustomersBL(ISQL_CRepository p_repo)
+        private ISQLCRepository _repo;
+        public CustomersBL(ISQLCRepository p_repo)
         {
             _repo = p_repo;
         }

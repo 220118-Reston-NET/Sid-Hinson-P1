@@ -5,8 +5,8 @@ namespace StoreBL
 {
     public class InventoryBL : IInventoryBL
     {
-        private ISQL_InvRepository _repo;
-        public InventoryBL(ISQL_InvRepository p_repo)
+        private ISQLInvRepository _repo;
+        public InventoryBL(ISQLInvRepository p_repo)
         {
             _repo = p_repo;
         }

@@ -33,7 +33,7 @@ namespace StoreTest
             expectedlistoforders.Add(Order1);
 
             //Mock The Repo that is a dependency
-            Mock<ISQL_ORepository> mockRepo = new Mock<ISQL_ORepository>();
+            Mock<ISQLORepository> mockRepo = new Mock<ISQLORepository>();
             //Mock GetAllOrders
             mockRepo.Setup(repo => repo.GetAllOrders()).Returns(expectedlistoforders);
 

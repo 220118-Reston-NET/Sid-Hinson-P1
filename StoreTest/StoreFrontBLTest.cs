@@ -27,7 +27,7 @@ namespace StoreTest
             expectedlistofstorefront.Add(StoreFront1);
 
             //Mock The Repo that is a dependency
-            Mock<ISQL_SRepository> mockRepo = new Mock<ISQL_SRepository>();
+            Mock<ISQLSRepository> mockRepo = new Mock<ISQLSRepository>();
             //Mock GetAllStoreFronts
             mockRepo.Setup(repo => repo.GetAllStoreFronts()).Returns(expectedlistofstorefront);
 

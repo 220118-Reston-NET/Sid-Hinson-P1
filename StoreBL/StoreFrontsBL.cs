@@ -5,8 +5,8 @@ namespace StoreBL
 {
     public class StoreFrontsBL : IStoreFrontsBL
     {
-        private ISQL_SRepository _repo;
-        public StoreFrontsBL(ISQL_SRepository p_repo)
+        private ISQLSRepository _repo;
+        public StoreFrontsBL(ISQLSRepository p_repo)
         {
             _repo = p_repo;
         }

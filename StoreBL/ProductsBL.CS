@@ -5,8 +5,8 @@ namespace StoreBL
 {    public class ProductsBL : IProductsBL
     {
 
-        private ISQL_PRepository _repo;
-        public ProductsBL(ISQL_PRepository p_repo)
+        private ISQLPRepository _repo;
+        public ProductsBL(ISQLPRepository p_repo)
         {
             _repo = p_repo;
         }
