@@ -21,6 +21,20 @@ namespace StoreApi.Controllers
             _invbl = invbl;
         }
 
+        //POST AddInventory
+        [HttpPost("AddInventory")]
+        public IActionResult AddStoreFronts([FromQuery] Inventory p_inv)
+        {
+            try
+            {
+                return Created("Success", _invbl.AddInventory(p_inv));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+            }
+
+        }
 
         // // GET: api/Inventory
         // [HttpGet]

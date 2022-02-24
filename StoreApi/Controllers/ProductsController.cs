@@ -21,7 +21,7 @@ namespace StoreApi.Controllers
             _prodbl = prodbl;
         }
 
-        //POST ADD PRODUCTS
+        //POST AddProducts
         [HttpPost("AddProducts")]
         public IActionResult AddProducts([FromQuery] Products p_prod)
         {

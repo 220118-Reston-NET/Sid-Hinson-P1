@@ -21,7 +21,7 @@ namespace StoreApi.Controllers
             _storebl = storebl;
         }
 
-        //POST ADD STOREFRONT
+        //POST AddStoreFronts
         [HttpPost("AddStoreFronts")]
         public IActionResult AddStoreFronts([FromQuery] StoreFronts p_store)
         {

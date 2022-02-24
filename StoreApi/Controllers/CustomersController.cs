@@ -20,7 +20,7 @@ namespace StoreApi.Controllers
             _custbl = p_custbl;
         }
         
-        //POST ADD CUSTOMERS
+        //POST AddCustomers
         [HttpPost("AddCustomers")]
         public IActionResult AddCustomers([FromQuery] Customers p_cust)
         {
