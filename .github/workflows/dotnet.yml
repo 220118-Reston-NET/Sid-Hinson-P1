@@ -54,6 +54,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
       
+    - name: Test
+      run: dotnet test --logger trx --collect:"Xplat Code Coverage" --DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
+    
     - name: Build and analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -64,12 +67,10 @@ jobs:
            dotnet build ./StoreApi -c Release
            .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
       
-    - name: Build
-      run: dotnet build --no-restore
+    # - name: Build
+     # run: dotnet build --no-restore
       
-    - name: Test
-      run: dotnet test --logger trx --collect:"Xplat Code Coverage" --DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
-      
+   
     - name: Create Publish Folder
       run: dotnet publish -c Release -o publish
     
