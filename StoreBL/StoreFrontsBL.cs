@@ -33,7 +33,7 @@ namespace StoreBL
 
         public List<StoreFronts> GetCompStoreHist(int p_store)
         {
-            return _repo.GetCompStoreHist(p_store);
+            return _repo.GetStoreHist(p_store);
         }
         
     }

@@ -9,11 +9,7 @@ namespace StoreModel
        public string OrderStatus { get; set; }
        public List<LineItems> OrderLineItems { get; set; }
        public double OrderTotal { get; set; }
-       public int ProductID { get; set; }
-       public int ProductQuantity { get; set; }
-       public string ProductName { get; set; }
-       public string CLastName { get; set; }
-            
+
         public Orders()
         {
             OrderCustID = 0;

@@ -11,14 +11,6 @@ namespace StoreModel
         public string StoreAddress { get; set; }
         public string StoreCity { get; set; }
         
-        ///
-        public int OrderID { get; set; }
-        public string OrderDate { get; set; }
-        public double OrderTotal { get; set; }
-        public string OrderStatus { get; set; }
-        public int CustID { get; set; }
-        public string CLastName { get; set; }
-
 
         //Default Class Constructor
         public StoreFronts()

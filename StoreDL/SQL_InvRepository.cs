@@ -11,13 +11,13 @@ namespace StoreDL
             _ConnectionStrings = p_ConnectionStrings;
         }
 
+
+
+
         public Inventory AddInventory(Inventory p_inv)
         {
-            
- 
             string sqlQuery = @"insert into Inventory 
                                 values (@StoreID, @ProductID, @ProductQuantity)";
-
 
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {          
@@ -30,6 +30,10 @@ namespace StoreDL
             }
             return p_inv;
         }
+
+
+
+
         public List<Inventory> GetAllInventory()
         {
             List<Inventory> listofinventory = new List<Inventory>();
@@ -51,6 +55,9 @@ namespace StoreDL
             }
             return listofinventory;
         }
+
+
+
 
         public Inventory UpdateInventory(Inventory p_inv)
         {

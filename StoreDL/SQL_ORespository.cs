@@ -20,21 +20,15 @@ namespace StoreDL
             string sqlQuery = @"insert into Orders 
                                 values (@OrderCustID, @OrderStoreID, @OrderDate, @OrderTotal, @OrderStatus)";
 
-
-
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {                      
                 con.Open();
                 SqlCommand command =  new SqlCommand(sqlQuery, con);
-
-
                 command.Parameters.AddWithValue("@OrderCustID", p_ord.OrderCustID);
                 command.Parameters.AddWithValue("@OrderStoreID", p_ord.OrderStoreID);
                 command.Parameters.AddWithValue("@OrderDate", p_ord.OrderDate);
                 command.Parameters.AddWithValue("@OrderTotal", p_ord.OrderTotal);
                 command.Parameters.AddWithValue("@OrderStatus", p_ord.OrderStatus);
- 
-                //EXECUTES THE SQL Statement
                 command.ExecuteNonQuery();
             }
             return p_ord;
@@ -48,8 +42,6 @@ namespace StoreDL
             string sqlQuery = @"UPDATE Orders
                                 SET  OrderStatus = @OrderStatus
                                 WHERE OrderID = @OrderID";
-
-
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {          
                 con.Open();
@@ -60,28 +52,6 @@ namespace StoreDL
                 Console.WriteLine("Inventory Updated");
             }
         
-        }
-
-
-
-
-
-
-        public LineItems AddLineItems(LineItems p_line)
-        {
-            string sqlQuery = @"insert into LineItems 
-                                values (@OrderID, @ProductID, @ProductQuantity)";
-            using(SqlConnection con = new SqlConnection(_ConnectionStrings))
-            {                      
-                con.Open();
-                SqlCommand command =  new SqlCommand(sqlQuery, con);
-                command.Parameters.AddWithValue("@OrderID", p_line.OrderID);
-                command.Parameters.AddWithValue("@ProductID",p_line.ProductID);
-                command.Parameters.AddWithValue("@ProductQuantity",p_line.ProductQuantity);
-                command.ExecuteNonQuery();
-
-            }
-            return p_line;
         }
 
 
@@ -101,7 +71,6 @@ namespace StoreDL
                     SqlDataReader reader = command.ExecuteReader();
                     while(reader.Read())
                     {
-
                         listoforders.Add(new Orders(){
                                 OrderID = reader.GetInt32(0),
                                 OrderCustID = reader.GetInt32(1),
@@ -120,21 +89,17 @@ namespace StoreDL
 
 
 
-        public List<Orders> GetCompOrderHist(int p_custID)
+        public List<Orders> GetOrderHist(int p_ordCustID)
         {
-
             List<Orders> listoforders = new List<Orders>();
-            string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus, li.ProductID, li.ProductQuantity, p.ProductName, c.CLastName   
+            string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus  
                                 FROM Orders o 
-                                INNER JOIN Customers c ON c.CustomerID = o.OrderCustID 
-                                INNER JOIN LineItems li ON li.OrderID = o.OrderID
-                                INNER JOIN Products p ON p.ProductID = li.ProductID 
-                                WHERE o.OrderCustID = @OrderID";
+                                WHERE o.OrderCustID = @OrderCustID";
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {
                     con.Open();
                     SqlCommand command = new SqlCommand(sqlQuery, con);
-                    command.Parameters.AddWithValue("@OrderID", p_custID);
+                    command.Parameters.AddWithValue("@OrderCustID", p_ordCustID);
                     SqlDataReader reader = command.ExecuteReader();
                     while(reader.Read())
                     {
@@ -146,16 +111,9 @@ namespace StoreDL
                                 OrderDate = reader.GetString(3),
                                 OrderTotal = Convert.ToDouble(reader.GetDecimal(4)),
                                 OrderStatus = reader.GetString(5),
-                                ProductID = reader.GetInt32(6),
-                                ProductQuantity = reader.GetInt32(7),
-                                ProductName = reader.GetString(8),
-                                CLastName = reader.GetString(9),
-
-
                                 });
                     }
             }
-
             return listoforders;
         }
  
@@ -191,6 +149,24 @@ namespace StoreDL
         }  
 
 
+
+
+        public LineItems AddLineItems(LineItems p_line)
+        {
+            string sqlQuery = @"insert into LineItems 
+                                values (@OrderID, @ProductID, @ProductQuantity)";
+            using(SqlConnection con = new SqlConnection(_ConnectionStrings))
+            {                      
+                con.Open();
+                SqlCommand command =  new SqlCommand(sqlQuery, con);
+                command.Parameters.AddWithValue("@OrderID", p_line.OrderID);
+                command.Parameters.AddWithValue("@ProductID",p_line.ProductID);
+                command.Parameters.AddWithValue("@ProductQuantity",p_line.ProductQuantity);
+                command.ExecuteNonQuery();
+
+            }
+            return p_line;
+        }
 
 
 

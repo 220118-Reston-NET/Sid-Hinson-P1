@@ -62,7 +62,7 @@ namespace StoreDL
         /// </summary>
         /// <param name="p_store"></param>
         /// <returns></returns>
-        public List<StoreFronts> GetCompStoreHist(int p_store);
+        public List<StoreFronts> GetStoreHist(int p_store);
     }
     
 
@@ -88,7 +88,7 @@ namespace StoreDL
         /// Gets a Comprehensive Order List for a Customer
         /// </summary>
         /// <returns></returns>
-        public List<Orders> GetCompOrderHist(int p_custID);
+        public List<Orders> GetOrderHist(int p_custID);
         /// <summary>
         /// Updates Order Status
         /// </summary>

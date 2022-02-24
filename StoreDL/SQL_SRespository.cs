@@ -10,9 +10,11 @@ namespace StoreDL
             _ConnectionStrings = p_ConnectionStrings;
         }
 
+
+
+
         public StoreFronts AddStoreFronts(StoreFronts p_store)
         {
-
             string sqlQuery = @"insert into StoreFronts 
                                 values (@StoreAddress, @StoreZipCode, @StoreState, @StoreCity)";
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
@@ -27,6 +29,9 @@ namespace StoreDL
             }
             return p_store;
         }
+
+
+
 
         public List<StoreFronts> GetAllStoreFronts()
         {
@@ -51,19 +56,20 @@ namespace StoreDL
             return listofstorefronts;
         }
 
-        public List<StoreFronts> GetCompStoreHist(int p_store)
+
+
+
+        public List<StoreFronts> GetStoreHist(int p_storeID)
         {
             List<StoreFronts> listofstorefronts = new List<StoreFronts>();
-            string sqlQuery =@"SELECT sf.StoreID , sf.StoreAddress, sf.StoreZipCode, sf.StoreState, sf.StoreCity, o.OrderID, o.OrderDate, o.OrderTotal, o.OrderStatus, c.CustomerID, c.CLastName  
+            string sqlQuery =@"SELECT sf.StoreID , sf.StoreAddress, sf.StoreZipCode, sf.StoreState, sf.StoreCity 
                                 FROM StoreFronts sf 
-                                INNER JOIN Orders o ON sf.StoreID = o.OrderStoreID 
-                                INNER JOIN Customers c ON o.OrderCustID = c.CustomerID 
                                 WHERE sf.StoreID = @StoreID";
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {
                 con.Open();
                 SqlCommand command = new SqlCommand(sqlQuery, con);
-                command.Parameters.AddWithValue("@StoreID", p_store);
+                command.Parameters.AddWithValue("@StoreID", p_storeID);
                 SqlDataReader reader = command.ExecuteReader();
                 while(reader.Read())
                 {
@@ -73,13 +79,6 @@ namespace StoreDL
                             StoreZipCode = reader.GetString(2),
                             StoreState = reader.GetString(3),
                             StoreCity = reader.GetString(4),
-                            OrderID = reader.GetInt32(5),
-                            OrderDate = reader.GetString(6),
-                            OrderTotal = Convert.ToDouble(reader.GetDecimal(7)),
-                            OrderStatus = reader.GetString(8),
-                            CustID = reader.GetInt32(9),
-                            CLastName = reader.GetString(10),
-                
                     });
                 }
             }

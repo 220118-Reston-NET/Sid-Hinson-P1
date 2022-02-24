@@ -65,7 +65,7 @@ namespace StoreBL
 
         public List<Orders> GetCompOrderHist(int p_custID)
         {
-            return _repo.GetCompOrderHist(p_custID);
+            return _repo.GetOrderHist(p_custID);
         }
 
         //******LineItems*******//

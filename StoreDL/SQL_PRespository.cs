@@ -13,12 +13,8 @@ namespace StoreDL
 
         public Products AddProducts(Products p_prod)
         {
-            
- 
             string sqlQuery = @"insert into Products 
                                 values (@StoreID,@ProductName, @ProductCompany, @ProductPrice, @ProductDescription, @ProductCategory)";
-
-
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {          
                 con.Open();
@@ -33,6 +29,9 @@ namespace StoreDL
             }
             return p_prod;
         }
+
+
+
         public List<Products> GetAllProducts()
         {
             List<Products> listofproducts = new List<Products>();
