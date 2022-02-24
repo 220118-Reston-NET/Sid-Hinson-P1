@@ -5,14 +5,11 @@ namespace StoreDL
     public class SQLORepository : ISQLORepository
     {
 
-
         private readonly string _ConnectionStrings;
         public SQLORepository(string p_ConnectionStrings)
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
-
-
 
 
         public Orders AddOrders(Orders p_ord, List<LineItems> _shoppingcart)
@@ -49,8 +46,6 @@ namespace StoreDL
                     command.Parameters.AddWithValue("@ProductQuantity", item.ProductQuantity);
                     command.ExecuteNonQuery();
 
-                //Update Values in Inventory With Correct Value
-
                     command =  new SqlCommand(sqlQuery3, con);
                     command.Parameters.AddWithValue("@StoreID", p_ord.OrderStoreID);
                     command.Parameters.AddWithValue("@ProductID", item.ProductID);
@@ -59,11 +54,10 @@ namespace StoreDL
 
                 }
 
-                command.ExecuteNonQuery();
-
             }
             return p_ord;
         }
+
 
 
 
@@ -84,8 +78,6 @@ namespace StoreDL
             }
         
         }
-
-
 
 
 
@@ -118,8 +110,6 @@ namespace StoreDL
 
 
 
-
-
         public List<Orders> GetOrdersHistory(int p_ordCustID)
         {
             List<Orders> listoforders = new List<Orders>();
@@ -147,8 +137,6 @@ namespace StoreDL
             }
             return listoforders;
         }
-
-
 
 
 
