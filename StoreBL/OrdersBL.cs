@@ -12,17 +12,20 @@ namespace StoreBL
             _repo = p_repo;
         }
 
-        public List<Orders> GetAllOrders()
-        {
-            List<Orders> listoforders = _repo.GetAllOrders();
-            return listoforders;
-        }
+
 
         public Orders AddOrders(Orders p_order)
         {
             List<Orders> listoforders = _repo.GetAllOrders();
             return _repo.AddOrders(p_order);
         }
+
+        public List<Orders> GetAllOrders()
+        {
+            List<Orders> listoforders = _repo.GetAllOrders();
+            return listoforders;
+        }
+
 
         public List<Orders> SearchStoreOrders(int p_storeID, string p_status)
         {
@@ -33,6 +36,8 @@ namespace StoreBL
                     .ToList(); //ToList method converts into return List collection
         }
 
+
+
         public List<Orders> SearchOrders(int p_custID, string p_status)
         {
             List<Orders> listoforders = _repo.GetAllOrders();
@@ -41,6 +46,8 @@ namespace StoreBL
                     .Where(Orders => Orders.OrderStatus.Contains(p_status))
                     .ToList(); //ToList method converts into return List collection
         }
+
+
         public List<Orders> SearchForOrderbyID(int p_custID, int p_storeID)
         {
             List<Orders> listoforders = _repo.GetAllOrders();
@@ -50,6 +57,8 @@ namespace StoreBL
                     .ToList(); //ToList method converts into return List collection
         }
 
+
+
         public Orders SearchOrdStat(int p_ordID)
         {
             Orders foundord = new Orders();
@@ -58,23 +67,28 @@ namespace StoreBL
             return foundord;
         }
 
+
+
         public void UpdateOrdStat(int p_ordID, string p_stat)
         {
             _repo.UpdateOrdStat(p_ordID, p_stat);
         }
+
+
 
         public List<Orders> GetCompOrderHist(int p_custID)
         {
             return _repo.GetOrderHist(p_custID);
         }
 
-        //******LineItems*******//
+
 
         public LineItems AddLineItems(LineItems p_line)
         {
             List<LineItems> listoflineitems = _repo.GetAllLineItems();
             return _repo.AddLineItems(p_line);
         }
+
 
         public List<LineItems> SearchLineItems(int p_orderID)
         {
@@ -83,6 +97,7 @@ namespace StoreBL
                     .Where(LineItems => LineItems.OrderID.Equals(p_orderID))
                     .ToList(); //ToList method converts into return List collection
         }
+
 
         public LineItems AddItemFields(int p_prodID, int p_prodQuant,int p_storeID, double p_price)
         {
@@ -94,32 +109,5 @@ namespace StoreBL
             return p_lineItem;
         }
 
-
-        public List<LineItems> AddItemtoCart(List<LineItems> p_orderList, LineItems p_lineItem)
-        {
-                return p_orderList;
-        }
-
-
-        public List<LineItems> RemoveFromCart(List<LineItems> p_orderList)
-        {
-            return p_orderList;
-        }
-
-        public void DisplayGraphic()
-        {
-                Console.WriteLine("=========================================================="); 
-                Console.WriteLine(")xxxxx[;;;;;;;;;>    )xxxxx[;;;;;;;;;>   )xxxxx[;;;;;;;;;>"); 
-                Console.WriteLine("==========================================================");
-        } 
-
-        public List<LineItems> DisplayCart(List<LineItems> p_list)
-        {   
-            foreach (LineItems item in p_list)
-            {
-                Console.WriteLine(item);
-            }
-            return p_list;
-        }  
     }
 }

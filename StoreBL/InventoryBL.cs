@@ -10,12 +10,16 @@ namespace StoreBL
         {
             _repo = p_repo;
         }
+
+
         public Inventory AddInventory(Inventory p_inv)
         {
             List<Inventory> listofInventory = _repo.GetAllInventory();
             Console.WriteLine("Adding Inventory............");
             return _repo.AddInventory(p_inv);
         }
+
+
 
         public Inventory FindItemLevel(int p_storeID, int p_prodID)
         {
@@ -25,16 +29,22 @@ namespace StoreBL
             return FoundItem;
         }
 
+
+
         public Inventory UpdateInventory(Inventory p_inv)
         {
             return _repo.UpdateInventory(p_inv);
         }
+
+
 
         public List<Inventory> GetAllInventory()
         {
             List<Inventory> listofinventory = _repo.GetAllInventory();
             return listofinventory;
         }
+        
+
         
     }
 }

@@ -18,27 +18,16 @@ namespace StoreBL
         /// 
         List<Customers> SearchCustomersByName(string p_fname, string p_lname);
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_name1"></param>
-        /// <param name="p_name2"></param>
-        /// <param name="p_email"></param>
-        /// <returns></returns>
-        List<Customers> SearchCustomersByNameEmail(string p_name1, string p_name2, string p_email);
-        /// <summary>
-        /// Searches for Customers
-        /// </summary>
-        /// <param name="p_fname"></param>
-        /// <param name="p_lname"></param>
-        /// <returns></returns>
-        List<Customers> SearchForCustomersNameLocation(string p_fname, string p_lname, string p_city, string p_state);
-        /// <summary>
-        /// Gets All Customers
+        /// Gets Customer ID By Email and Password
         /// </summary>
         /// <param name="p_email"></param>
         /// <param name="p_pass"></param>
         /// <returns></returns>
         public int GetID(string p_email, string p_pass);
+        /// <summary>
+        /// Gets All Custoemrs
+        /// </summary>
+        /// <returns></returns>
         public List<Customers> GetAllCustomers();
 
     }
@@ -68,7 +57,7 @@ namespace StoreBL
         /// </summary>
         /// <param name="p_store"></param>
         /// <returns></returns>
-        public List<StoreFronts> GetCompStoreHist(int p_store);
+        public List<StoreFronts> GetStoreHist(int p_store);
         
     }
 
@@ -82,47 +71,13 @@ namespace StoreBL
         /// <param name="p_product"></param>
         /// <returns></returns>
         public Products AddProducts(Products p_product);
-
         /// <summary>
-        /// Will return List of objects related to Search query through p_name parameter
-        /// </summary>
-        /// <param name="p_productNumber"></param>
-        /// <returns>Filtered Search Results </returns>
-        public List<Products> SearchProducts(string p_productName, string p_productComp, int p_productStoreID);
-        /// <summary>
-        /// Searches For Product
+        /// Finds Product By Name and Store ID
         /// </summary>
         /// <param name="p_productName"></param>
         /// <param name="p_productStoreID"></param>
         /// <returns></returns>
         public Products SearchForProduct(string p_productName, int p_productStoreID);
-        /// <summary>
-        /// Searches Products by Company
-        /// </summary>
-        /// <param name="p_productComp"></param>
-        /// <returns></returns>
-        public List<Products> SearchProductsComp(string p_productComp);
-        /// <summary>
-        /// Searches Products by Category
-        /// </summary>
-        /// <param name="p_productCat"></param>
-        /// <returns></returns>
-        public List<Products> SearchProductsCat(string p_productCat);
-        /// <summary>
-        /// Searches Products by Category
-        /// </summary>
-        /// <param name="p_productCat"></param>
-        /// <param name="p_storeid"></param>
-        /// <returns></returns>
-        public List<Products> SearchProductsCat(string p_productCat, int p_storeid);
-        /// <summary>
-        /// Searches for a Product ID
-        /// </summary>
-        /// <param name="p_prodName"></param>
-        /// <param name="p_prodComp"></param>
-        /// <param name="p_StoreID"></param>
-        /// <returns></returns>
-        public List<Products> SearchProductsID(int p_productID);
         /// <summary>
         /// Gets Price of Product
         /// </summary>
@@ -175,13 +130,13 @@ namespace StoreBL
         /// <returns></returns>
         public List<Orders> SearchForOrderbyID(int p_custID, int p_storeID);
         /// <summary>
-        /// Searches for status of Order
+        /// Searches for status of Order by CustID and StoreID
         /// </summary>
         /// <param name="p_ordID"></param>
         /// <returns></returns>
         public Orders SearchOrdStat(int p_ordID);
         /// <summary>
-        /// Updates the Status of an Order
+        /// Updates the Status Qualifier of an Order
         /// </summary>
         /// <param name="p_ordID"></param>
         /// <param name="p_stat"></param>
@@ -192,9 +147,6 @@ namespace StoreBL
         /// <param name="p_custID"></param>
         /// <returns></returns>
         public List<Orders> GetCompOrderHist(int p_custID);
-
-        //********Lineitems**********//
-
         /// <summary>
         /// Add Line Items to Repo
         /// </summary>
@@ -209,26 +161,19 @@ namespace StoreBL
         /// <param name="p_storeID"></param>
         /// <param name="p_price"></param>
         /// <returns></returns>
-        public LineItems AddItemFields(int p_prodID, int p_prodQuant, int p_storeID, double p_price);
-        /// <summary>
-        /// Searches Line Items
-        /// </summary>
-        /// <param name="p_orderID"></param>
-        /// <returns></returns>
         public List<LineItems> SearchLineItems(int p_orderID);
         /// <summary>
         /// Displays Cart
         /// </summary>
         /// <param name="p_list"></param>
         /// <returns></returns>
-        public List<LineItems> DisplayCart(List<LineItems> p_list);
+         public LineItems AddItemFields(int p_prodID, int p_prodQuant, int p_storeID, double p_price);
         /// <summary>
-        /// A simple graphic display
+        /// Searches Line Items
         /// </summary>
-        public void DisplayGraphic();
-
-    }
-
+        /// <param name="p_orderID"></param>
+        /// <returns></returns>
+ }  
 
 
 

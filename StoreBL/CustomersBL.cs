@@ -11,12 +11,17 @@ namespace StoreBL
         {
             _repo = p_repo;
         }
+
+
+        
         public Customers AddCustomers(Customers p_cust)
         {
             List<Customers> listofcustomers = _repo.GetAllCustomers();
             Console.WriteLine("Adding Customer............");
             return _repo.AddCustomers(p_cust);
         }
+
+
 
         public List<Customers> SearchCustomersByName(string p_fname, string p_lname)
         {
@@ -27,26 +32,8 @@ namespace StoreBL
                     .ToList(); 
         }
 
-        public List<Customers> SearchCustomersByNameEmail(string p_fname, string p_lname, string p_email)
-        {
-        List<Customers> listofcustomers = _repo.GetAllCustomers();
-        return listofcustomers
-                    .Where(Customers => Customers.CFirstName.Contains(p_fname))
-                    .Where(Customers => Customers.CLastName.Contains(p_lname))
-                    .Where(Customers => Customers.CustomerEmail.Contains(p_email))
-                    .ToList(); 
-        }
 
-        public List<Customers> SearchForCustomersNameLocation(string p_fname, string p_lname, string p_city, string p_state)
-        {
-            List<Customers> listofcustomers = _repo.GetAllCustomers();
-            return listofcustomers
-                    .Where(Customers => Customers.CFirstName.Contains(p_fname))
-                    .Where(Customers => Customers.CLastName.Contains(p_lname))
-                    .Where(Customers => Customers.CustomerCity.Contains(p_city))
-                    .Where(Customers => Customers.CustomerState.Contains(p_state))
-                    .ToList();
-        }
+
 
         public int GetID(string p_email, string p_pass)
         {   
@@ -61,6 +48,10 @@ namespace StoreBL
             }
             return CustomerID;
         }
+
+
+
+
         public List<Customers> GetAllCustomers()
         {
             List<Customers> listofcustomers = _repo.GetAllCustomers();

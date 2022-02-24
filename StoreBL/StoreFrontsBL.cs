@@ -10,20 +10,23 @@ namespace StoreBL
         {
             _repo = p_repo;
         }
+
+        
         public StoreFronts AddStoreFronts(StoreFronts p_front)
         {
                 Console.WriteLine("Adding Store Front............");
                 return _repo.AddStoreFronts(p_front);
         }
 
-        public List<StoreFronts> SearchStoreFronts(int p_storeNumber) 
+        public List<StoreFronts> SearchStoreFronts(int p_storeID) 
         {
             Console.WriteLine("Searching for Store Front Information ...........");
             List<StoreFronts> listofstorefronts = _repo.GetAllStoreFronts();
             return listofstorefronts
-                    .Where(StoreFronts => StoreFronts.StoreID.Equals(p_storeNumber))
+                    .Where(StoreFronts => StoreFronts.StoreID.Equals(p_storeID))
                     .ToList(); 
         }
+
 
         public List<StoreFronts> GetAllStoreFronts()
         {
@@ -31,9 +34,10 @@ namespace StoreBL
             return listofstorefronts;
         }
 
-        public List<StoreFronts> GetCompStoreHist(int p_store)
+
+        public List<StoreFronts> GetStoreHist(int p_storeID)
         {
-            return _repo.GetStoreHist(p_store);
+            return _repo.GetStoreHist(p_storeID);
         }
         
     }
