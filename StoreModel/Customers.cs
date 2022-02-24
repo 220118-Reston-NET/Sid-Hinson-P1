@@ -17,14 +17,7 @@
 
             set 
             {
-                // if (value != "")
-                // {
-                    _CFirstName = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("First Name must be entered and have a value.");
-                // }         
+              _CFirstName = value;
             }
         }
 
@@ -35,14 +28,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value))
-                // {
-                    _CLastName = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("Last Name must be entered and have a value.");
-                // }
+                _CLastName = value;
             }
         }
         private string _DateofBirth;
@@ -52,15 +38,8 @@
 
             set 
             { 
-                // if (value.Length == 8)
-                // {
-                    _DateofBirth = value; 
-            
-                // }
-                // else
-                // {
-                //     throw new Exception("Date of Birth must be 8 Numeric Characters. MMDDYYYY");
-                // } 
+
+                _DateofBirth = value; 
             }
         }
         private string _CustomerAddress;
@@ -70,14 +49,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value))
-                // {
-                    _CustomerAddress = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("Address must be entered.");
-                // }
+                _CustomerAddress = value;
             }
         }
         private string _CustomerCity;
@@ -87,14 +59,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value))
-                // {
-                    _CustomerCity = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("City must be entered and have a value.");
-                // }
+                 _CustomerCity = value;
             }
         }
    
@@ -105,14 +70,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value))
-                // {
-                    _CustomerState = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("State must have a value");
-                // }
+                 _CustomerState = value;
             }
         }
         private string _CustomerZipcode;
@@ -122,14 +80,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value) || value.Length != 5)
-                // {
-                    _CustomerZipcode = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("ZipCode must have a value.");
-                // }
+                 _CustomerZipcode = value;
             }
         }
 
@@ -140,14 +91,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value))
-                // {
-                    _CustCountry = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("Country must be entered.");
-                // }
+                 _CustCountry = value;
 
             }
         }
@@ -159,15 +103,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value))
-                // {
-                    _CustomerEmail = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("Email must have a input.");
-                // }
-
+                _CustomerEmail = value;
             }
         }
         private string _Password;
@@ -177,15 +113,7 @@
 
             set 
             {
-                // if (string.IsNullOrEmpty(value))
-                // {
-                    _Password = value;
-                // }
-                // else
-                // {
-                //     throw new Exception("Password must have an input.");
-                // }
- 
+                _Password = value;
             }
         }
 
