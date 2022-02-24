@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     environment: 
       name: 'Production'
     
@@ -46,14 +46,17 @@ jobs:
         
     - name: Install SonarCloud scanner
       if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-      shell: pwsh #NOTE:changed from powershell
+      shell: pwsh #NOTED: Changed from Powershell to pwsh
       run: |
-        New-Item -Path .\.sonar\scanner -ItemType Directory
-        dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool install dotnet-sonarscanner --version 5.5.3 --tool-path .\.sonar\scanner
         
     - name: Restore dependencies
       run: dotnet restore
       
+    - name: Test
+      run: dotnet test --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+    
     - name: Build and analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -64,12 +67,10 @@ jobs:
            dotnet build ./StoreApi -c Release
            .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
       
-    - name: Build
-      run: dotnet build --no-restore
+    # - name: Build
+     # run: dotnet build --no-restore
       
-    - name: Test
-      run: dotnet test --logger trx --collect:"Xplat Code Coverage" --DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover 
-      
+   
     - name: Create Publish Folder
       run: dotnet publish -c Release -o publish
     
