@@ -9,7 +9,7 @@ using StoreModel;
 
 namespace StoreApi.Controllers
 {
-    [Route("storefronts-api/[controller]")]
+    [Route("store-api/[controller]")]
     [ApiController]
     public class StoreFrontsController : ControllerBase
     {

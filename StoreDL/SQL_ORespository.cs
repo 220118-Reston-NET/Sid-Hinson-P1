@@ -146,11 +146,10 @@ namespace StoreDL
                                 OrderDate = reader.GetString(3),
                                 OrderTotal = Convert.ToDouble(reader.GetDecimal(4)),
                                 OrderStatus = reader.GetString(5),
-
-                                // ProductID = reader.GetInt32(6),
-                                // ProductQuantity = reader.GetInt32(7),
-                                // ProductName = reader.GetString(8),
-                                // CLastName = reader.GetString(9),
+                                ProductID = reader.GetInt32(6),
+                                ProductQuantity = reader.GetInt32(7),
+                                ProductName = reader.GetString(8),
+                                CLastName = reader.GetString(9),
 
 
                                 });
