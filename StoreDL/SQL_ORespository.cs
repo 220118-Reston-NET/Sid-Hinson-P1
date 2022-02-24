@@ -15,21 +15,55 @@ namespace StoreDL
 
 
 
-        public Orders AddOrders(Orders p_ord)
+        public Orders AddOrders(Orders p_ord, List<LineItems> _shoppingcart)
         {
-            string sqlQuery = @"insert into Orders 
+
+            string sqlQuery1  = @"insert into Orders 
                                 values (@OrderCustID, @OrderStoreID, @OrderDate, @OrderTotal, @OrderStatus)";
+            string sqlQuery2 = @"insert into LineItems 
+                                values (@OrderID, @ProductID, @ProductQuantity)";
+            string sqlQuery3 = @"UPDATE Inventory
+                                SET  ProductQuantity = ProductQuantity - @ProductQuantity
+                                WHERE StoreID = @StoreID and ProductID = @ProductID";
+
 
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {                      
                 con.Open();
-                SqlCommand command =  new SqlCommand(sqlQuery, con);
+                SqlCommand command =  new SqlCommand(sqlQuery1, con);
                 command.Parameters.AddWithValue("@OrderCustID", p_ord.OrderCustID);
                 command.Parameters.AddWithValue("@OrderStoreID", p_ord.OrderStoreID);
                 command.Parameters.AddWithValue("@OrderDate", p_ord.OrderDate);
                 command.Parameters.AddWithValue("@OrderTotal", p_ord.OrderTotal);
                 command.Parameters.AddWithValue("@OrderStatus", p_ord.OrderStatus);
+
+                //Return Highest Number of Rows to Equate Order ID
+                int orderID = Convert.ToInt32(command.ExecuteScalar());
+
+
+                //Add Items in Cart to LineItems DB
+                foreach(LineItems item in _shoppingcart)
+                {
+                    command =  new SqlCommand(sqlQuery2, con);
+                    command.Parameters.AddWithValue("@OrderID", orderID);
+                    command.Parameters.AddWithValue("@ProductID", item.ProductID);
+                    command.Parameters.AddWithValue("@ProductQuantity", item.ProductQuantity);
+                    command.ExecuteNonQuery();
+                }
+
+                //Update Values in Inventory With Correct Value
+                foreach(LineItems item in _shoppingcart)
+                {
+                    command =  new SqlCommand(sqlQuery3, con);
+                    command.Parameters.AddWithValue("@StoreID", p_ord.OrderStoreID);
+                    command.Parameters.AddWithValue("@ProductID", item.ProductID);
+                    command.Parameters.AddWithValue("@ProductQuantity", item.ProductQuantity);
+                    command.ExecuteNonQuery();
+
+                }
+
                 command.ExecuteNonQuery();
+
             }
             return p_ord;
         }
@@ -167,9 +201,6 @@ namespace StoreDL
             }
             return p_line;
         }
-
-
-
 
 
     }

@@ -42,6 +42,7 @@ namespace StoreModel
         {
         ProductID = 0;
         ProductQuantity = 0;
+        Price = 0;
         StoreID = 0;
         }
 

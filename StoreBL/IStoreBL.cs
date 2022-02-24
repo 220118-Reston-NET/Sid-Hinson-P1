@@ -105,11 +105,12 @@ namespace StoreBL
     public interface IOrdersBL
     {
         /// <summary>
-        /// Add Orders to Repo
+        /// Adds Order with LineItems Carts
         /// </summary>
         /// <param name="p_order"></param>
-        /// <returns>order</returns>
-        public Orders AddOrders(Orders p_order);
+        /// <param name="_shoppingcart"></param>
+        /// <returns></returns>
+        public Orders AddOrders(Orders p_order, List<LineItems> _shoppingcart);
         /// <summary>
         /// Gets All Orders
         /// </summary>
