@@ -10,57 +10,41 @@
     {
     
         public int CustomerID { get; set; }
-        private string _CFirstName;
+
+        private string  _CFirstName;
         public string CFirstName
         {
-            get { return _CFirstName; }
-
-            set 
-            {
-              _CFirstName = value;
-            }
+            get { return  _CFirstName; }
+            set {  _CFirstName = value; }
         }
-
+        
         private string _CLastName;
         public string CLastName
         {
             get { return _CLastName; }
-
-            set 
-            {
-                _CLastName = value;
-            }
+            set { _CLastName = value; }
         }
+        
         private string _DateofBirth;
         public string CDateofBirth
         {
             get { return _DateofBirth; }
 
-            set 
-            { 
-
-                _DateofBirth = value; 
-            }
+            set { _DateofBirth = value; }
         }
         private string _CustomerAddress;
         public string CustomerAddress
         {
             get { return _CustomerAddress; }
 
-            set 
-            {
-                _CustomerAddress = value;
-            }
+            set { _CustomerAddress = value; }
         }
         private string _CustomerCity;
         public string CustomerCity
         {
             get { return _CustomerCity; }
 
-            set 
-            {
-                 _CustomerCity = value;
-            }
+            set { _CustomerCity = value; }
         }
    
         private string _CustomerState;
@@ -68,20 +52,14 @@
         {
             get { return _CustomerState; }
 
-            set 
-            {
-                 _CustomerState = value;
-            }
+            set { _CustomerState = value;}
         }
         private string _CustomerZipcode;
         public string CustomerZipcode
         {
             get { return _CustomerZipcode; }
 
-            set 
-            {
-                 _CustomerZipcode = value;
-            }
+            set { _CustomerZipcode = value; }
         }
 
         private string _CustCountry;
@@ -89,11 +67,7 @@
         {
             get { return _CustCountry; }
 
-            set 
-            {
-                 _CustCountry = value;
-
-            }
+            set { _CustCountry = value; }
         }
         private string _CustomerEmail;
 
@@ -101,20 +75,14 @@
         {
             get { return _CustomerEmail; }
 
-            set 
-            {
-                _CustomerEmail = value;
-            }
+            set { _CustomerEmail = value; }
         }
         private string _Password;
         public string CPassword
         {
             get { return _Password; }
 
-            set 
-            {
-                _Password = value;
-            }
+            set { _Password = value; }
         }
 
         //Default Class Constructor
