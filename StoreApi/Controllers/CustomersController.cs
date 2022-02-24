@@ -20,7 +20,7 @@ namespace StoreApi.Controllers
             _custbl = p_custbl;
         }
         
-        // POST: api/AddCustomers
+        //POST ADD CUSTOMERS
         [HttpPost("AddCustomers")]
         public IActionResult AddCustomers([FromQuery] Customers p_cust)
         {
@@ -30,8 +30,7 @@ namespace StoreApi.Controllers
             }
             catch (System.Exception)
             {
-                
-             return BadRequest();
+                return BadRequest();
             }
 
         }

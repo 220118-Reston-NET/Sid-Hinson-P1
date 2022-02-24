@@ -21,6 +21,20 @@ namespace StoreApi.Controllers
             _prodbl = prodbl;
         }
 
+        //POST ADD PRODUCTS
+        [HttpPost("AddProducts")]
+        public IActionResult AddProducts([FromQuery] Products p_prod)
+        {
+            try
+            {
+                return Created("Success", _prodbl.AddProducts(p_prod));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+            }
+
+        }
 
         // // GET: api/Products
         // [HttpGet]

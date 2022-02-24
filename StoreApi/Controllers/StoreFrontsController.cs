@@ -21,6 +21,20 @@ namespace StoreApi.Controllers
             _storebl = storebl;
         }
 
+        //POST ADD STOREFRONT
+        [HttpPost("AddStoreFronts")]
+        public IActionResult AddStoreFronts([FromQuery] StoreFronts p_store)
+        {
+            try
+            {
+                return Created("Success", _storebl.AddStoreFronts(p_store));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+            }
+
+        }
         // // GET: api/StoreFronts
         // [HttpGet]
         // public IEnumerable<string> Get()
