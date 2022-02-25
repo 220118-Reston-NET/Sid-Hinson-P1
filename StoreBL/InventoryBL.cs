@@ -29,6 +29,13 @@ namespace StoreBL
             return FoundItem;
         }
 
+        public List<Inventory> SearchLocationInventory(int p_storeID)
+        {
+            List<Inventory> listofInventory = _repo.GetAllInventory();
+            return listofInventory
+                    .Where(Inventory => Inventory.StoreID.Equals(p_storeID))
+                    .ToList(); //ToList method converts into return List collection
+        }
 
 
         public Inventory UpdateInventory(Inventory p_inv)
@@ -42,6 +49,7 @@ namespace StoreBL
         {
             List<Inventory> listofinventory = _repo.GetAllInventory();
             return listofinventory;
+
         }
         
 

@@ -23,18 +23,18 @@ namespace StoreApi.Controllers
         }
 
 
-        //POST AddOrders
+        
         [HttpPost("AddOrders")]
         public IActionResult AddOrders([FromBody] Orders p_ord)
         {
-            // try
-            // {
+            try
+            {
                 return Created("Success", _ordbl.AddOrders(p_ord));
-            // }
-            // catch (System.Exception)
-            // {
-            //     return BadRequest();
-            // }
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+            }
 
         }
 
@@ -53,7 +53,7 @@ namespace StoreApi.Controllers
         }
 
         
-        [HttpGet("GetOrderHistory")]
+        [HttpGet("GetDetailedOrderHistory")]
         public IActionResult GetOrderHistory(int p_ordID)
         {
             try
@@ -66,23 +66,18 @@ namespace StoreApi.Controllers
             }
         }
 
-
-        // // POST: api/Orders
-        // [HttpPost]
-        // public void Post([FromBody] string value)
-        // {
-        // }
-
-        // // PUT: api/Orders/5
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody] string value)
-        // {
-        // }
-
-        // // DELETE: api/Orders/5
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
+        [HttpGet("GetOrderHistoryLocation")]
+        public IActionResult GetOrderHistoryLocation(int p_storeID)
+        {
+            try
+            {
+                return Ok(_ordbl.SearchStoreOrders(p_storeID));
+            }
+            catch (SqlException)
+            {
+                return NotFound();
+            }
+        }
+    
     }
 }

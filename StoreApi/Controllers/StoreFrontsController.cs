@@ -21,7 +21,7 @@ namespace StoreApi.Controllers
             _storebl = storebl;
         }
 
-        //POST AddStoreFronts
+        
         [HttpPost("AddStoreFronts")]
         public IActionResult AddStoreFronts([FromQuery] StoreFronts p_store)
         {
@@ -35,36 +35,5 @@ namespace StoreApi.Controllers
             }
 
         }
-        // // GET: api/StoreFronts
-        // [HttpGet]
-        // public IEnumerable<string> Get()
-        // {
-        //     return new string[] { "value1", "value2" };
-        // }
-
-        // // GET: api/StoreFronts/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
-
-        // // POST: api/StoreFronts
-        // [HttpPost]
-        // public void Post([FromBody] string value)
-        // {
-        // }
-
-        // // PUT: api/StoreFronts/5
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody] string value)
-        // {
-        // }
-
-        // // DELETE: api/StoreFronts/5
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
     }
 }

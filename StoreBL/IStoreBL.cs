@@ -161,6 +161,12 @@ namespace StoreBL
         /// <returns>linetime</returns>
         public LineItems AddLineItems(LineItems p_line);
         /// <summary>
+        /// SearchOrdersByStore
+        /// </summary>
+        /// <param name="p_storeID"></param>
+        /// <returns></returns>
+        public List<Orders> SearchStoreOrders(int p_storeID);
+        /// <summary>
         /// Adds Items to a LineItem
         /// </summary>
         /// <param name="p_prodID"></param>
@@ -192,6 +198,12 @@ namespace StoreBL
         /// <param name="p_inv"></param>
         /// <returns></returns>
         public Inventory AddInventory(Inventory p_inv);
+        /// <summary>
+        /// Search Inventory by Location
+        /// </summary>
+        /// <param name="p_storeID"></param>
+        /// <returns></returns>
+        public List<Inventory> SearchLocationInventory(int p_storeID);
         /// <summary>
         /// Finds the Par Level of Inventory
         /// </summary>

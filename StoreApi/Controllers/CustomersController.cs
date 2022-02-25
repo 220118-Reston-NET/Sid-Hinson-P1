@@ -20,7 +20,7 @@ namespace StoreApi.Controllers
             _custbl = p_custbl;
         }
         
-        //POST AddCustomers
+        
         [HttpPost("AddCustomers")]
         public IActionResult AddCustomers([FromQuery] Customers p_cust)
         {
@@ -35,14 +35,14 @@ namespace StoreApi.Controllers
 
         }
 
-        // GET: api/SearchCustomers
+        
         [HttpGet("SearchCustomers")]
         public IActionResult GetCustomersByName(string CFirstName, string CLastName)
         {
-            // 
+            
             try
             {
-                // return "value";
+                
                 return Ok(_custbl.SearchCustomersByName(CFirstName.ToUpper(), CLastName.ToUpper()));
             }
             catch (SqlException)

@@ -101,7 +101,7 @@ namespace StoreDL
         public List<Orders> GetAllOrders()
         {
             List<Orders> listoforders = new List<Orders>();
-            string sqlQuery =@"select * from Orders";
+            string sqlQuery =@"select * from Orders ORDER BY OrderDate, OrderTotal DESC";
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {
                     con.Open();
