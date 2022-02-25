@@ -78,12 +78,12 @@
             set { _CustomerZipcode = value; }
         }
 
-        private string _CustCountry;
-        public string CustCountry
+        private string _CustomerCountry;
+        public string CustomerCountry
         {
-            get { return _CustCountry; }
+            get { return _CustomerCountry; }
 
-            set { _CustCountry = value; }
+            set { _CustomerCountry = value; }
         }
         private string _CustomerEmail;
 
@@ -110,7 +110,7 @@
             CustomerState = "";
             CustomerCity = "";
             CustomerZipcode = "";
-            CustCountry = "";
+            CustomerCountry = "";
             CustomerEmail = "";
             CPassword = "";
         }
@@ -119,7 +119,7 @@
         {
             return $"Customer Id: {CustomerID}\nFirst Name: {CFirstName}\nLast name: {CLastName}\nDate of Birth {CDateofBirthMonth}" +
             $"\nAddress: {CustomerAddress}\nCustomer State: {CustomerState}\nCustomer City: {CustomerCity}" +
-            $"\nCustomer Country: {CustCountry}\nEmail: {CustomerEmail}";
+            $"\nCustomer Country: {CustomerCountry}\nEmail: {CustomerEmail}";
         }
     }
 }

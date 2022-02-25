@@ -32,7 +32,7 @@ namespace StoreTest
                 CustomerState = State,
                 CustomerCity = City,
                 CustomerZipcode = Zipcode,
-                CustCountry = Country,
+                CustomerCountry = Country,
                 CustomerEmail = Email,
                 CPassword = Password
             };

@@ -30,7 +30,7 @@ namespace StoreDL
                 command.Parameters.AddWithValue("@CustomerState", p_cust.CustomerState.ToUpper());
                 command.Parameters.AddWithValue("@CustomerCity", p_cust.CustomerCity.ToUpper());
                 command.Parameters.AddWithValue("@CustomerZipCode", p_cust.CustomerZipcode.ToUpper());
-                command.Parameters.AddWithValue("@CustCountry", p_cust.CustCountry.ToUpper());
+                command.Parameters.AddWithValue("@CustCountry", p_cust.CustomerCountry.ToUpper());
                 command.Parameters.AddWithValue("@CustomerEmail",p_cust.CustomerEmail.ToUpper());
                 command.Parameters.AddWithValue("@CPassword", p_cust.CPassword);
                 command.ExecuteNonQuery();
@@ -62,7 +62,7 @@ namespace StoreDL
                             CustomerState = reader.GetString(7),
                             CustomerCity = reader.GetString(8),
                             CustomerZipcode = reader.GetString(9),
-                            CustCountry = reader.GetString(10),
+                            CustomerCountry = reader.GetString(10),
                             CustomerEmail = reader.GetString(11),
                             CPassword = reader.GetString(12)
                     });
