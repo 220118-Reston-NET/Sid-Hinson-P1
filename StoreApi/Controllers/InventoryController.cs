@@ -23,7 +23,7 @@ namespace StoreApi.Controllers
 
         //POST AddInventory
         [HttpPost("AddInventory")]
-        public IActionResult AddStoreFronts([FromQuery] Inventory p_inv)
+        public IActionResult AddInventory([FromQuery] Inventory p_inv)
         {
             try
             {
@@ -35,6 +35,22 @@ namespace StoreApi.Controllers
             }
 
         }
+
+        //PUT UpdateInventory
+        [HttpPut("UpdateInventory")]
+        public IActionResult UpdateInventory([FromQuery] Inventory p_inv)
+        {
+            try
+            {
+                return Ok(_invbl.UpdateInventory(p_inv));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+            }
+
+        }
+
 
         // // GET: api/Inventory
         // [HttpGet]
