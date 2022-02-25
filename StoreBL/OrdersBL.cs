@@ -14,9 +14,9 @@ namespace StoreBL
 
 
 
-        public Orders AddOrders(Orders p_order, List<LineItems> _shoppingcart)
+        public Orders AddOrders(Orders p_order)
         {
-            return _repo.AddOrders(p_order, _shoppingcart);
+            return _repo.AddOrders(p_order);
         }
 
         public List<Orders> GetAllOrders()

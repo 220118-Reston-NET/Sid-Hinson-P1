@@ -16,17 +16,17 @@ namespace StoreTest
         {
             //Arrange
             Orders ord = new Orders();
-            string orderdate = "10211980";
+            double ordertotal = 230.00;
             string orderstatus = "FULFILLED";
 
             //Act
-            ord.OrderDate = orderdate;
+            ord.OrderTotal = ordertotal;
             ord.OrderStatus = orderstatus;
 
             //Assert
             Assert.NotNull(ord.OrderDate);
             Assert.NotNull(ord.OrderStatus);
-            Assert.Equal(orderdate, ord.OrderDate);
+            Assert.Equal(ordertotal, ord.OrderTotal);
             Assert.Equal(orderstatus, ord.OrderStatus);
             
         }

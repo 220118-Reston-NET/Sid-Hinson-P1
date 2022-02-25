@@ -17,7 +17,7 @@ namespace StoreTest
             
             int orderCustID = 1;
             int orderStoreID = 1;
-            string orderDate = "10211980";
+            string orderStatus = "FULFILLED";
             double orderTotal = 50.00;
   
 
@@ -25,7 +25,7 @@ namespace StoreTest
             {
                     OrderCustID = orderCustID,
                     OrderStoreID = orderStoreID,
-                    OrderDate = orderDate,
+                    OrderStatus = orderStatus,
                     OrderTotal = orderTotal
             };
 

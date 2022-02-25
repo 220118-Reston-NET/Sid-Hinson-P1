@@ -25,11 +25,11 @@ namespace StoreApi.Controllers
 
         //POST AddOrders
         [HttpPost("AddOrders")]
-        public IActionResult AddOrders([FromQuery] Orders p_ord,[FromQuery] List<LineItems> _shoppingcart)
+        public IActionResult AddOrders([FromQuery] Orders p_ord)
         {
             try
             {
-                return Created("Success", _ordbl.AddOrders(p_ord, _shoppingcart));
+                return Created("Success", _ordbl.AddOrders(p_ord));
             }
             catch (System.Exception)
             {

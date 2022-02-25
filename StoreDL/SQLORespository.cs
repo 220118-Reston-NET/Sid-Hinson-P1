@@ -12,7 +12,7 @@ namespace StoreDL
         }
 
 
-        public Orders AddOrders(Orders p_ord, List<LineItems> _shoppingcart)
+        public Orders AddOrders(Orders p_ord)
         {
 
             string sqlQuery1  = @"insert into Orders 
@@ -22,6 +22,14 @@ namespace StoreDL
             string sqlQuery3 = @"UPDATE Inventory
                                 SET  ProductQuantity = ProductQuantity - @ProductQuantity
                                 WHERE StoreID = @StoreID and ProductID = @ProductID";
+
+
+            foreach(LineItems item in p_ord.OrderLineItems)
+            {
+                p_ord.OrderTotal += item.Price;
+            }
+            
+            p_ord.OrderDate = DateTime.Now;
 
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {                      
@@ -38,7 +46,7 @@ namespace StoreDL
 
 
                 //Add Items in Cart to LineItems DB
-                foreach(LineItems item in _shoppingcart)
+                foreach(LineItems item in p_ord.OrderLineItems)
                 {
                     command =  new SqlCommand(sqlQuery2, con);
                     command.Parameters.AddWithValue("@OrderID", orderID);
@@ -98,7 +106,7 @@ namespace StoreDL
                                 OrderID = reader.GetInt32(0),
                                 OrderCustID = reader.GetInt32(1),
                                 OrderStoreID = reader.GetInt32(2),
-                                OrderDate = reader.GetString(3),
+                                OrderDate = reader.GetDateTime(3),
                                 OrderTotal = Convert.ToDouble(reader.GetDecimal(4)),
                                 OrderStatus = reader.GetString(5)
                                 });
@@ -129,7 +137,7 @@ namespace StoreDL
                                 OrderID = reader.GetInt32(0),
                                 OrderCustID = reader.GetInt32(1),
                                 OrderStoreID = reader.GetInt32(2),
-                                OrderDate = reader.GetString(3),
+                                OrderDate = reader.GetDateTime(3),
                                 OrderTotal = Convert.ToDouble(reader.GetDecimal(4)),
                                 OrderStatus = reader.GetString(5),
                                 });

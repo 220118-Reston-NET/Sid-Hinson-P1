@@ -110,7 +110,7 @@ namespace StoreBL
         /// <param name="p_order"></param>
         /// <param name="_shoppingcart"></param>
         /// <returns></returns>
-        public Orders AddOrders(Orders p_order, List<LineItems> _shoppingcart);
+        public Orders AddOrders(Orders p_order);
         /// <summary>
         /// Gets All Orders
         /// </summary>

@@ -77,7 +77,7 @@ namespace StoreDL
         // /// </summary>
         // /// <param name="p_ord"></param> Customer Object
         // /// <returns>Order Added</returns>
-        public Orders AddOrders(Orders p_ord, List<LineItems> _shoppingcart);
+        public Orders AddOrders(Orders p_ord);
 
         /// <summary>
         /// Will Get All Orders in DB

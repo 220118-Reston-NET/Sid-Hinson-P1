@@ -25,12 +25,28 @@
             set { _CLastName = value; }
         }
         
-        private string _DateofBirth;
-        public string CDateofBirth
+        private int _DateofBirthMonth;
+        public int CDateofBirthMonth
         {
-            get { return _DateofBirth; }
+            get { return _DateofBirthMonth; }
 
-            set { _DateofBirth = value; }
+            set { _DateofBirthMonth = value; }
+        }
+
+        private int _DateofBirthDay;
+        public int CDateofBirthDay
+        {
+            get { return _DateofBirthDay; }
+
+            set { _DateofBirthDay = value; }
+        }
+
+        private int _DateofBirthYear;
+        public int CDateofBirthYear
+        {
+            get { return _DateofBirthYear; }
+
+            set { _DateofBirthYear = value; }
         }
         private string _CustomerAddress;
         public string CustomerAddress
@@ -90,7 +106,6 @@
         {
             CFirstName ="";
             CLastName = "";
-            CDateofBirth = "";
             CustomerAddress = "";
             CustomerState = "";
             CustomerCity = "";
@@ -102,7 +117,7 @@
 
         public override string ToString()
         {
-            return $"Customer Id: {CustomerID}\nFirst Name: {CFirstName}\nLast name: {CLastName}\nDate of Birth {CDateofBirth}" +
+            return $"Customer Id: {CustomerID}\nFirst Name: {CFirstName}\nLast name: {CLastName}\nDate of Birth {CDateofBirthMonth}" +
             $"\nAddress: {CustomerAddress}\nCustomer State: {CustomerState}\nCustomer City: {CustomerCity}" +
             $"\nCustomer Country: {CustCountry}\nEmail: {CustomerEmail}";
         }

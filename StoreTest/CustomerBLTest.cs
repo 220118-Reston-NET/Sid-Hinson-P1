@@ -29,7 +29,7 @@ namespace StoreTest
             {
                 CFirstName = FirstName,
                 CLastName = LastName,
-                CDateofBirth = DateofBirth,
+                CDateofBirthMonth = DateofBirth,
                 CustomerAddress = Address,
                 CustomerState = State,
                 CustomerCity = City,
