@@ -52,6 +52,20 @@ namespace StoreApi.Controllers
             }
         }
 
+        
+        [HttpGet("GetOrderHistory")]
+        public IActionResult GetOrderHistory(int p_ordID)
+        {
+            try
+            {
+                return Ok(_ordbl.GetOrderHistory(p_ordID));
+            }
+            catch (SqlException)
+            {
+                return NotFound();
+            }
+        }
+
 
         // // POST: api/Orders
         // [HttpPost]

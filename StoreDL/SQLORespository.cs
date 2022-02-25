@@ -197,6 +197,71 @@ namespace StoreDL
             return p_line;
         }
 
+    
+        public Orders GetOrderHistory(int p_ordID)
+        {
+            Orders orderhistory = new Orders();
+
+            string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus  
+                                FROM Orders o 
+                                WHERE o.OrderID = @OrderID";
+
+
+            string sqlQuery1 =@"SELECT OrderID, ProductID, ProductQuantity  
+                                FROM LineItems li
+                                WHERE OrderID = @OrderID";
+            
+            using(SqlConnection con = new SqlConnection(_ConnectionStrings))
+            {
+                    con.Open();
+
+
+                    SqlCommand command = new SqlCommand(sqlQuery, con);
+                    command.Parameters.AddWithValue("@OrderID", p_ordID);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        orderhistory.OrderID = reader.GetInt32(0);
+                        orderhistory.OrderCustID = reader.GetInt32(1);
+                        orderhistory.OrderStoreID = reader.GetInt32(2);
+                        orderhistory.OrderDate = reader.GetDateTime(3);
+                        orderhistory.OrderTotal = Convert.ToDouble(reader.GetDecimal(4));
+                        orderhistory.OrderStatus = reader.GetString(5);
+                            
+                    }
+                    reader.Close();
+                    reader.Dispose();
+
+                    command = new SqlCommand(sqlQuery1, con);
+                    command.Parameters.AddWithValue("@OrderID", p_ordID);
+
+                    SqlDataReader reader2 = command.ExecuteReader();
+                    while(reader2.Read())
+                    {
+
+                        orderhistory.OrderLineItems.Add(new LineItems(){
+                                 OrderID = reader.GetInt32(0),
+                                 ProductID = reader.GetInt32(1),
+                                 ProductQuantity = reader.GetInt32(2),
+                                });
+                    }
+
+            }
+
+            return orderhistory;   
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

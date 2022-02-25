@@ -149,6 +149,12 @@ namespace StoreBL
         /// <returns></returns>
         public List<Orders> GetOrdersHistory(int p_custID);
         /// <summary>
+        /// Gets a Single Detailed Order History
+        /// </summary>
+        /// <param name="p_ordID"></param>
+        /// <returns></returns>
+        public Orders GetOrderHistory(int p_ordID);
+        /// <summary>
         /// Add Line Items to Repo
         /// </summary>
         /// <param name="p_line"></param>

@@ -80,6 +80,11 @@ namespace StoreBL
             return _repo.GetOrdersHistory(p_custID);
         }
 
+        public Orders GetOrderHistory(int p_ordID)
+        {
+            return _repo.GetOrderHistory(p_ordID);
+        }
+
         public LineItems AddLineItems(LineItems p_line)
         {
             List<LineItems> listoflineitems = _repo.GetAllLineItems();
