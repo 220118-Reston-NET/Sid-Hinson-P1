@@ -16,7 +16,6 @@ namespace StoreTest
            //Arrange
             string FirstName = "STEPHEN";
             string LastName = "STRANGE";
-            string DateofBirth = "11181930";
             string Address = "117A BlEECKER STREET";
             string State = "NY";
             string City = "NEW YORK CITY";
@@ -29,7 +28,6 @@ namespace StoreTest
             {
                 CFirstName = FirstName,
                 CLastName = LastName,
-                CDateofBirthMonth = DateofBirth,
                 CustomerAddress = Address,
                 CustomerState = State,
                 CustomerCity = City,
