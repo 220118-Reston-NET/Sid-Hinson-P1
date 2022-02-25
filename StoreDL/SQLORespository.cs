@@ -17,8 +17,10 @@ namespace StoreDL
 
             string sqlQuery1  = @"insert into Orders 
                                 values (@OrderCustID, @OrderStoreID, @OrderDate, @OrderTotal, @OrderStatus)";
+
             string sqlQuery2 = @"insert into LineItems 
                                 values (@OrderID, @ProductID, @ProductQuantity)";
+
             string sqlQuery3 = @"UPDATE Inventory
                                 SET  ProductQuantity = ProductQuantity - @ProductQuantity
                                 WHERE StoreID = @StoreID and ProductID = @ProductID";
@@ -42,27 +44,30 @@ namespace StoreDL
                 command.Parameters.AddWithValue("@OrderStatus", p_ord.OrderStatus);
 
                 //Return Highest Number of Rows to Equate Order ID
-                int orderID = Convert.ToInt32(command.ExecuteScalar());
+                p_ord.OrderID = Convert.ToInt32(command.ExecuteScalar());
+                command.ExecuteNonQuery();
+            }
 
-
-                //Add Items in Cart to LineItems DB
-                foreach(LineItems item in p_ord.OrderLineItems)
-                {
-                    command =  new SqlCommand(sqlQuery2, con);
-                    command.Parameters.AddWithValue("@OrderID", orderID);
-                    command.Parameters.AddWithValue("@ProductID", item.ProductID);
-                    command.Parameters.AddWithValue("@ProductQuantity", item.ProductQuantity);
-                    command.ExecuteNonQuery();
-
-                    command =  new SqlCommand(sqlQuery3, con);
-                    command.Parameters.AddWithValue("@StoreID", p_ord.OrderStoreID);
-                    command.Parameters.AddWithValue("@ProductID", item.ProductID);
-                    command.Parameters.AddWithValue("@ProductQuantity", item.ProductQuantity);
-                    command.ExecuteNonQuery();
-
-                }
+            foreach(var item in p_ord.OrderLineItems)
+            {
+                item.OrderID = p_ord.OrderID;
+                AddLineItems(item);
 
             }
+            
+            
+            using(SqlConnection con = new SqlConnection(_ConnectionStrings))
+            {
+                
+                con.Open();
+                SqlCommand command =  new SqlCommand(sqlQuery1, con);
+
+
+                command.ExecuteNonQuery();
+            }
+
+
+            
             return p_ord;
         }
 
