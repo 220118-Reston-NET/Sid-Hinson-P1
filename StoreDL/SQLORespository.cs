@@ -219,16 +219,14 @@ namespace StoreDL
                     SqlCommand command = new SqlCommand(sqlQuery, con);
                     command.Parameters.AddWithValue("@OrderID", p_ordID);
                     SqlDataReader reader = command.ExecuteReader();
-                    while(reader.Read())
-                    {
-                        orderhistory.OrderID = reader.GetInt32(0);
-                        orderhistory.OrderCustID = reader.GetInt32(1);
-                        orderhistory.OrderStoreID = reader.GetInt32(2);
-                        orderhistory.OrderDate = reader.GetDateTime(3);
-                        orderhistory.OrderTotal = Convert.ToDouble(reader.GetDecimal(4));
-                        orderhistory.OrderStatus = reader.GetString(5);
+                
+                    orderhistory.OrderID = reader.GetInt32(0);
+                    orderhistory.OrderCustID = reader.GetInt32(1);
+                    orderhistory.OrderStoreID = reader.GetInt32(2);
+                    orderhistory.OrderDate = reader.GetDateTime(3);
+                    orderhistory.OrderTotal = Convert.ToDouble(reader.GetDecimal(4));
+                    orderhistory.OrderStatus = reader.GetString(5);
                             
-                    }
                     reader.Close();
                     reader.Dispose();
 
