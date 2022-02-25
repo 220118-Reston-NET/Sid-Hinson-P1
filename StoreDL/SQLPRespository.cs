@@ -20,11 +20,11 @@ namespace StoreDL
                 con.Open();
                 SqlCommand command =  new SqlCommand(sqlQuery, con);
                 command.Parameters.AddWithValue("@StoreID", p_prod.StoreID);
-                command.Parameters.AddWithValue("@ProductName", p_prod.ProductName);
-                command.Parameters.AddWithValue("@ProductCompany", p_prod.ProductCompany);
+                command.Parameters.AddWithValue("@ProductName", p_prod.ProductName.ToUpper());
+                command.Parameters.AddWithValue("@ProductCompany", p_prod.ProductCompany.ToUpper());
                 command.Parameters.AddWithValue("@ProductPrice", p_prod.ProductPrice);
-                command.Parameters.AddWithValue("@ProductDescription", p_prod.ProductDescription);
-                command.Parameters.AddWithValue("@ProductCategory", p_prod.ProductCategory);
+                command.Parameters.AddWithValue("@ProductDescription", p_prod.ProductDescription.ToUpper());
+                command.Parameters.AddWithValue("@ProductCategory", p_prod.ProductCategory.ToUpper());
                 command.ExecuteNonQuery();
             }
             return p_prod;

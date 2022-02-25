@@ -21,10 +21,10 @@ namespace StoreDL
             {                                    
                 con.Open();
                 SqlCommand command =  new SqlCommand(sqlQuery, con);
-                command.Parameters.AddWithValue("@StoreAddress", p_store.StoreAddress);
+                command.Parameters.AddWithValue("@StoreAddress", p_store.StoreAddress.ToUpper());
                 command.Parameters.AddWithValue("@StoreZipCode", p_store.StoreZipCode);
-                command.Parameters.AddWithValue("@StoreState", p_store.StoreState);
-                command.Parameters.AddWithValue("@StoreCity", p_store.StoreCity);
+                command.Parameters.AddWithValue("@StoreState", p_store.StoreState.ToUpper());
+                command.Parameters.AddWithValue("@StoreCity", p_store.StoreCity.ToUpper());
                 command.ExecuteNonQuery();
             }
             return p_store;

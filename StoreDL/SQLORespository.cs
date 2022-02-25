@@ -80,7 +80,7 @@ namespace StoreDL
                 con.Open();
                 SqlCommand command =  new SqlCommand(sqlQuery, con);
                 command.Parameters.AddWithValue("@OrderID", p_ordID);
-                command.Parameters.AddWithValue("@OrderStatus", p_stat);
+                command.Parameters.AddWithValue("@OrderStatus", p_stat.ToUpper());
                 command.ExecuteNonQuery();
                 Console.WriteLine("Inventory Updated");
             }
