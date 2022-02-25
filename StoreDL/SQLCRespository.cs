@@ -16,16 +16,13 @@ namespace StoreDL
              public Customers AddCustomers(Customers p_cust)
         {
             string sqlQuery = @"insert into Customers 
-                                values (@CFirstName, @CLastName, @CDateofBirthMonth, @CDateofBirthDay, @CDateofBirthYear, @CustomerAddress, @CustomerState, @CustomerCity, @CustomerZipCode, @CustCountry, @CustomerEmail, @CPassword)";
+                                values (@CFirstName, @CLastName, @CustomerAddress, @CustomerState, @CustomerCity, @CustomerZipCode, @CustCountry, @CustomerEmail, @CPassword)";
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {                        
                 con.Open();
                 SqlCommand command =  new SqlCommand(sqlQuery, con);
                 command.Parameters.AddWithValue("@CFirstName", p_cust.CFirstName.ToUpper());
                 command.Parameters.AddWithValue("@CLastName", p_cust.CLastName.ToUpper());
-                command.Parameters.AddWithValue("@CDateofBirthMonth", p_cust.CDateofBirthMonth);
-                command.Parameters.AddWithValue("@CDateofBirthDay", p_cust.CDateofBirthDay);
-                command.Parameters.AddWithValue("@CDateofBirthYear", p_cust.CDateofBirthYear);
                 command.Parameters.AddWithValue("@CustomerAddress", p_cust.CustomerAddress.ToUpper());
                 command.Parameters.AddWithValue("@CustomerState", p_cust.CustomerState.ToUpper());
                 command.Parameters.AddWithValue("@CustomerCity", p_cust.CustomerCity.ToUpper());
@@ -55,16 +52,13 @@ namespace StoreDL
                             CustomerID = reader.GetInt32(0),
                             CFirstName = reader.GetString(1),
                             CLastName = reader.GetString(2),
-                            CDateofBirthMonth = reader.GetInt32(3),
-                            CDateofBirthDay = reader.GetInt32(4),
-                            CDateofBirthYear = reader.GetInt32(5),
-                            CustomerAddress = reader.GetString(6),
-                            CustomerState = reader.GetString(7),
-                            CustomerCity = reader.GetString(8),
-                            CustomerZipcode = reader.GetString(9),
-                            CustomerCountry = reader.GetString(10),
-                            CustomerEmail = reader.GetString(11),
-                            CPassword = reader.GetString(12)
+                            CustomerAddress = reader.GetString(3),
+                            CustomerState = reader.GetString(4),
+                            CustomerCity = reader.GetString(5),
+                            CustomerZipcode = reader.GetString(6),
+                            CustomerCountry = reader.GetString(7),
+                            CustomerEmail = reader.GetString(8),
+                            CPassword = reader.GetString(9)
                     });
 
                 }
