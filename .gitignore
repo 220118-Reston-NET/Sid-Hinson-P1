@@ -10,3 +10,4 @@ StoreDL/[dep]Repo_Old/[dep]IRepository.cs
 StoreDL/[dep]Repo_Old/SQL_Example_Model
 StoreApi/appsettings.json
 StoreApi/publish
+StoreApi/appsettings.Development.json 
