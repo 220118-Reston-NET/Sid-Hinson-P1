@@ -16,9 +16,12 @@ namespace StoreApi.Controllers
 
         private IInventoryBL _invbl;
 
-        public InventoryController(IInventoryBL invbl)
+        private ICustomersBL _custbl;
+
+        public InventoryController(IInventoryBL invbl, ICustomersBL custbl)
         {
             _invbl = invbl;
+            _custbl =  custbl;
         }
 
         

@@ -79,6 +79,15 @@
             set { _Password = value; }
         }
 
+        private bool _isAdmin;
+        public bool isAdmin
+        {
+            get { return _isAdmin; }
+
+            set { _isAdmin = value; }
+        }
+        
+
         //Default Class Constructor
         public Customers()
         {
@@ -91,6 +100,7 @@
             CustomerCountry = "";
             CustomerEmail = "";
             CPassword = "";
+            isAdmin = false;
         }
 
         public override string ToString()

@@ -57,5 +57,30 @@ namespace StoreBL
             List<Customers> listofcustomers = _repo.GetAllCustomers();
             return listofcustomers;
         }
+
+        public bool isAdmin(string p_email, string p_pass)
+        {
+            bool isAdmin = false;
+            List<Customers> listofcustomers = _repo.GetAllCustomers();
+            for(int i = 0; i < listofcustomers.Count; i++)
+            {
+                if(listofcustomers[i].CustomerEmail.Contains(p_email) & listofcustomers[i].CPassword.Contains(p_pass))
+                {
+                    if(listofcustomers[i].isAdmin == true)
+                    {
+                        isAdmin = true;
+                    }
+                    else
+                    {
+                        isAdmin = false;
+                    }
+                }
+            }
+            return isAdmin;
+        }
+
+
+
+
     }
 }

@@ -57,8 +57,9 @@ namespace StoreDL
                             CustomerCity = reader.GetString(5),
                             CustomerZipcode = reader.GetString(6),
                             CustomerCountry = reader.GetString(7),
-                            // CustomerEmail = reader.GetString(8),
-                            // CPassword = reader.GetString(9)
+                            CustomerEmail = reader.GetString(8),
+                            CPassword = reader.GetString(9),
+                            isAdmin = reader.GetBoolean(10)
                     });
 
                 }
