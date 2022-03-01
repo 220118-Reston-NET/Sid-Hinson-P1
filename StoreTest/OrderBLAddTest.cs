@@ -26,21 +26,18 @@ namespace StoreTest
             //Mock The Repo that is a dependency
             Mock<ISQLORepository> mockRepo = new Mock<ISQLORepository>();
 
-            //Mock GetAllCustomers
+            //Mock GetAllOrders
             mockRepo.Setup(repo => repo.AddOrders(p_ord)).Returns(p_ord);
             OrdersBL ordBL = new OrdersBL(mockRepo.Object);
 
+            
             //Act
-           Orders p_ord2 = new Orders()
-            {
-                OrderStatus = orderStatus,
-                OrderTotal = orderTotal
-            };
-            ordBL.AddOrders(p_ord2);
+            Orders p_ord2 = ordBL.AddOrders(p_ord);
 
            //Assert
-           Assert.Same(p_ord.OrderStatus,p_ord2.OrderStatus);
-           Assert.Equal(p_ord.OrderTotal,p_ord2.OrderTotal);
+           Assert.Same(p_ord, p_ord2);
+           Assert.Equal(p_ord.OrderTotal, p_ord2.OrderTotal);
+           Assert.NotNull(p_ord2);
        }
     }
 }

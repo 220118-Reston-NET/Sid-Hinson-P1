@@ -30,5 +30,29 @@ namespace StoreTest
             
         }
 
+        [Fact]
+
+        public void Should_Get_Correct_Store_Orders_History()
+        {
+            //Arrange
+
+            int p_ordCustID = 1;
+            List<Orders> expectedlistoforders = new List<Orders>();
+            
+            //Mock The Repo that is a dependency
+            Mock<ISQLORepository> mockRepo = new Mock<ISQLORepository>();
+            
+            //Mock GetAllOrders
+            mockRepo.Setup(repo => repo.GetOrdersHistory(p_ordCustID)).Returns(expectedlistoforders);
+            IOrdersBL ordBL = new OrdersBL(mockRepo.Object);
+
+           //Act
+           List<Orders> actualOrderlist = ordBL.GetOrdersHistory(p_ordCustID);
+
+           //Assert
+           Assert.Same(expectedlistoforders, actualOrderlist);
+           Assert.NotNull(actualOrderlist);
+        }
+
     }
 }

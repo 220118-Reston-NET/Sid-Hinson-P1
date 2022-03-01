@@ -31,16 +31,12 @@ namespace StoreTest
             IOrdersBL ordBL = new OrdersBL(mockRepo.Object);
 
             //Act
-            LineItems line2 = new LineItems()
-            {
-                ProductID = productID,
-                ProductQuantity = productQuantity
-            };
-            ordBL.AddLineItems(line2);
+            LineItems line2 = ordBL.AddLineItems(line);
 
            //Assert
-           Assert.Equal(line.ProductID, line2.ProductID);
+           Assert.Same(line, line2);
            Assert.Equal(line.ProductQuantity, line2.ProductQuantity);
+           Assert.NotNull(line2);
 
        }
     }

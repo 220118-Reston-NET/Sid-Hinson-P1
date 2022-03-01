@@ -31,16 +31,12 @@ namespace StoreTest
             StoreFrontsBL storeBL = new StoreFrontsBL(mockRepo.Object);
 
             //Act
-           StoreFronts p_store2 = new StoreFronts()
-            {
-                StoreAddress = storeAddress,
-                StoreState = storeState
-            };
-            storeBL.AddStoreFronts(p_store2);
+            StoreFronts p_store2 = storeBL.AddStoreFronts(p_store);
 
            //Assert
-           Assert.Same(p_store.StoreAddress,p_store2.StoreAddress);
-           Assert.Equal(p_store.StoreState,p_store2.StoreState);
+           Assert.Same(p_store, p_store2);
+           Assert.Same(p_store.StoreState,p_store2.StoreState);
+           Assert.NotNull(p_store2);
        }
     }
 }

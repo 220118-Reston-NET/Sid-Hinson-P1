@@ -32,27 +32,18 @@ namespace StoreTest
             //Mock The Repo that is a dependency
             Mock<ISQLPRepository> mockRepo = new Mock<ISQLPRepository>();
 
-            //Mock GetAllCustomers
+            //Mock GetAllProducts
             mockRepo.Setup(repo => repo.AddProducts(p_prod)).Returns(p_prod);
             ProductsBL prodBL = new ProductsBL(mockRepo.Object);
 
             //Act
-           Products p_prod2 = new Products()
-            {
-                ProductName = productName,
-                ProductCompany = productCompany,
-                ProductPrice = productPrice,
-                ProductDescription = productDescription,
-                ProductCategory = productCategory
-            };
-            prodBL.AddProducts(p_prod2);
+            //Act
+            Products p_prod2 = prodBL.AddProducts(p_prod);
 
            //Assert
-           Assert.Same(p_prod.ProductName, p_prod2.ProductName);
-           Assert.Same(p_prod.ProductCompany, p_prod2.ProductCompany);
-           Assert.Same(p_prod.ProductDescription, p_prod2.ProductDescription);
-           Assert.Same(p_prod.ProductCategory, p_prod2.ProductCategory);
+           Assert.Same(p_prod, p_prod2);
            Assert.Equal(p_prod.ProductPrice, p_prod2.ProductPrice);
+           Assert.NotNull(p_prod2);
        }
     }
 }

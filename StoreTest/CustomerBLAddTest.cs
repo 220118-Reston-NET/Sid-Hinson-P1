@@ -41,28 +41,16 @@ namespace StoreTest
             //Mock The Repo that is a dependency
             Mock<ISQLCRepository> mockRepo = new Mock<ISQLCRepository>();
 
-            //Mock GetAllCustomers
+            //Mock GetAddCustomers
             mockRepo.Setup(repo => repo.AddCustomers(p_cust)).Returns(p_cust);
             ICustomersBL custBL = new CustomersBL(mockRepo.Object);
 
-            //Act
-            Customers p_cust2 = new Customers()
-            {
-                CFirstName = FirstName,
-                CLastName = LastName,
-                CustomerAddress = Address,
-                CustomerState = State,
-                CustomerCity = City,
-                CustomerZipcode = Zipcode,
-                CustomerCountry = Country,
-                CustomerEmail = Email,
-                CPassword = Password
-            };
-            custBL.AddCustomers(p_cust2);
+            Customers p_cust2 = custBL.AddCustomers(p_cust);
 
            //Assert
-           Assert.Same(p_cust.CFirstName, p_cust2.CFirstName);
+           Assert.Same(p_cust, p_cust2);
            Assert.Equal(p_cust.CFirstName, p_cust2.CFirstName);
+           Assert.NotNull(p_cust2);
 
        }
     }
