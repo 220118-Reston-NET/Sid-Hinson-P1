@@ -54,6 +54,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    Log.Information("User is using the OpenAPI");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -65,3 +66,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+Log.Information("User is exiting the Program");

@@ -27,6 +27,7 @@ namespace StoreApi.Controllers
         [HttpPost("AddProducts")]
         public IActionResult AddProducts([FromQuery] Products p_prod, string email, string pass)
         {
+            Log.Information("User is entering Credentials.");
             if(_custbl.isAdmin(email,pass))
             {
                 try

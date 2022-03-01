@@ -98,7 +98,13 @@ namespace StoreDL
                                 });
                     }
             }
+            
+            foreach(Orders ord in listoforders)
+            {
+                ord.OrderLineItems = SearchLineItems(ord.OrderID);
+            }
             return listoforders;
+
         }
 
 

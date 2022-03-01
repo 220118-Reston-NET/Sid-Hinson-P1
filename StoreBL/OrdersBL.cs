@@ -23,11 +23,11 @@ namespace StoreBL
             return listoforders;
         }
 
-        public List<Orders> SearchStoreOrders(int p_storeID)
+        public List<Orders> SearchStoreOrders(int p_ordCustID)
         {
             List<Orders> listoforders = _repo.GetAllOrders();
             return listoforders
-                    .Where(Orders => Orders.OrderStoreID.Equals(p_storeID))
+                    .Where(Orders => Orders.OrderCustID.Equals(p_ordCustID))
                     .ToList(); //ToList method converts into return List collection
         }
 

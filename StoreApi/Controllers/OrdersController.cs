@@ -46,6 +46,7 @@ namespace StoreApi.Controllers
         [HttpGet("GetOrdersHistory")]
         public IActionResult GetOrdersHistory(int p_ordCustID, string email, string pass)
         {
+            Log.Information("User is entering Credentials.");
             if(_custbl.isAdmin(email,pass))
             {
                 try
@@ -66,6 +67,42 @@ namespace StoreApi.Controllers
             }
         }
 
+        [HttpGet("GetOrdersHistoryTargeted")]
+        public IActionResult GetOrdersHistoryTargeted(int p_ordCustID, string email, string pass, string p_target)
+        {
+            List<Orders> _listStoreOrder = _ordbl.SearchStoreOrders(p_ordCustID);
+
+            Log.Information("User is entering Credentials.");
+            if(_custbl.isAdmin(email,pass))
+            {
+                if (p_target.Equals("OrderTotal"))
+                {
+                    return Ok(_listStoreOrder.OrderBy(o => o.OrderTotal).ToList());
+                }
+                else if (p_target.Equals("OrderDate"))
+                {
+                    return Ok(_listStoreOrder.OrderBy(o => o.OrderDate).ToList());
+                }
+                else if (p_target.Equals("OrderTotal.Desc"))
+                {
+                    return Ok(_listStoreOrder.OrderByDescending(o => o.OrderTotal).ToList());
+                }
+                else if (p_target.Equals("OrderDate.Desc"))
+                {
+                    return Ok(_listStoreOrder.OrderByDescending(o => o.OrderDate).ToList());
+                }
+                else
+                {
+                    return NotFound("Keywords to Use are 'OrderTotal' or 'OrderDate' - use OrderTotal.Desc/OrderDate.Desc to Format Descending ");
+                }
+            }
+            else
+            {
+                Log.Information("Displaying Not Found.");
+                return StatusCode(401, "No access allowed for this User");
+            }
+            // return _listStoreOrder;
+        }
         
         [HttpGet("GetDetailedOrderHistory")]
         public IActionResult GetOrderHistory(int p_ordID, string email, string pass)

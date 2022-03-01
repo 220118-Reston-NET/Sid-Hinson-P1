@@ -27,6 +27,7 @@ namespace StoreApi.Controllers
         [HttpPost("AddStoreFronts")]
         public IActionResult AddStoreFronts([FromQuery] StoreFronts p_store, string email, string pass)
         {
+            Log.Information("User is entering Credentials.");
             if(_custbl.isAdmin(email,pass))
             {
                 try

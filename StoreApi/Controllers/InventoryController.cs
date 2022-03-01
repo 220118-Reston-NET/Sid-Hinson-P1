@@ -28,20 +28,22 @@ namespace StoreApi.Controllers
         [HttpPost("AddInventory")]
         public IActionResult AddInventory([FromQuery] Inventory p_inv, string email, string pass)
         {
-
+            Log.Information("User is entering Credentials.");
             if(_custbl.isAdmin(email,pass))
             {
                 try
-                {
+                {   Log.Information("User is adding Inventory.");
                     return Created("Success", _invbl.AddInventory(p_inv));
                 }
                 catch (System.Exception)
                 {
+                    Log.Information("Displaying Bad Request to User.");
                     return BadRequest();
                 }
             }
             else
             {
+                Log.Information("Displaying No Access Allowed for User.");
                 return StatusCode(401, "No access allowed for this User");
             }
 
@@ -51,6 +53,7 @@ namespace StoreApi.Controllers
         [HttpPut("UpdateInventory")]
         public IActionResult UpdateInventory([FromQuery] Inventory p_inv, string email, string pass)
         {
+            Log.Information("User is entering Credentials.");
             if(_custbl.isAdmin(email,pass))
             {
                 try
