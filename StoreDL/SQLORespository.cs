@@ -104,12 +104,44 @@ namespace StoreDL
 
 
 
+        // public List<Orders> GetOrdersHistory(int p_ordCustID)
+        // {
+        //     List<Orders> listoforders = new List<Orders>();
+        //     string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus  
+        //                         FROM Orders o 
+        //                         WHERE o.OrderCustID = @OrderCustID";
+
+
+        //     using(SqlConnection con = new SqlConnection(_ConnectionStrings))
+        //     {
+        //             con.Open();
+        //             SqlCommand command = new SqlCommand(sqlQuery, con);
+        //             command.Parameters.AddWithValue("@OrderCustID", p_ordCustID);
+        //             SqlDataReader reader = command.ExecuteReader();
+        //             while(reader.Read())
+        //             {
+
+        //                 listoforders.Add(new Orders(){
+        //                         OrderID = reader.GetInt32(0),
+        //                         OrderCustID = reader.GetInt32(1),
+        //                         OrderStoreID = reader.GetInt32(2),
+        //                         OrderDate = reader.GetDateTime(3),
+        //                         OrderTotal = Convert.ToDouble(reader.GetDecimal(4)),
+        //                         OrderStatus = reader.GetString(5),
+        //                         });
+        //             }
+        //     }
+
+        //     return listoforders;
+        // }
+
         public List<Orders> GetOrdersHistory(int p_ordCustID)
         {
             List<Orders> listoforders = new List<Orders>();
             string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus  
                                 FROM Orders o 
                                 WHERE o.OrderCustID = @OrderCustID";
+
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {
                     con.Open();
@@ -129,9 +161,12 @@ namespace StoreDL
                                 });
                     }
             }
+            foreach(Orders ord in listoforders)
+            {
+                ord.OrderLineItems = SearchLineItems(ord.OrderID);
+            }
             return listoforders;
         }
-
 
         public Orders GetOrderHistory(int p_ordID)
         {
@@ -206,6 +241,8 @@ namespace StoreDL
                                 OrderID = reader.GetInt32(0),
                                 ProductID = reader.GetInt32(1),
                                 ProductQuantity = reader.GetInt32(2),
+                                Price = Convert.ToDouble(reader.GetDecimal(3)),
+                                StoreID = reader.GetInt32(4)
                                 });
                     }
                 }
@@ -234,6 +271,14 @@ namespace StoreDL
             return p_line;
         }
 
+        public List<LineItems> SearchLineItems(int p_ordID)
+        {
+            List<LineItems> lineItemsOrderID = new List<LineItems>();
+            lineItemsOrderID = GetAllLineItems()
+                                .Where(lineitem => lineitem.OrderID.Equals(p_ordID))
+                                .ToList();
+            return lineItemsOrderID;
+        }
     }
 }
 

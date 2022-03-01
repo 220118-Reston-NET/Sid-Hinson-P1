@@ -9,12 +9,12 @@ namespace StoreDL
         /// </summary>
         /// <param name="p_cust"></param> Customer Object
         /// <returns>Customer Added</returns>
-        public Customers AddCustomers(Customers p_cust);
+        Customers AddCustomers(Customers p_cust);
         /// <summary>
         /// Will Get All Customers in DB
         /// </summary>
         /// <returns>Returns List</returns>
-        public List<Customers> GetAllCustomers();
+        List<Customers> GetAllCustomers();
     }
     
 
@@ -29,13 +29,13 @@ namespace StoreDL
         /// </summary>
         /// <param name="p_prod"></param> Customer Object
         /// <returns>Product Added</returns>
-        public Products AddProducts(Products p_prod);
+        Products AddProducts(Products p_prod);
 
         /// <summary>
         /// Will Get All Products in DB
         /// </summary>
         /// <returns>Returns List</returns>
-        public List<Products> GetAllProducts();
+        List<Products> GetAllProducts();
 
     }
     
@@ -51,18 +51,18 @@ namespace StoreDL
         /// </summary>
         /// <param name="p_store"></param> Customer Object
         /// <returns>Storefront Added</returns>
-        public StoreFronts AddStoreFronts(StoreFronts p_store);
+        StoreFronts AddStoreFronts(StoreFronts p_store);
         /// <summary>
         /// Will Get All Storefronts in DB
         /// </summary>
         /// <returns>Returns List</returns>
-        public List<StoreFronts> GetAllStoreFronts();
+        List<StoreFronts> GetAllStoreFronts();
         /// <summary>
         /// Pulls a Single StoreFront ID to Grab History
         /// </summary>
         /// <param name="p_store"></param>
         /// <returns></returns>
-        public List<StoreFronts> GetStoreHist(int p_store);
+        List<StoreFronts> GetStoreHist(int p_store);
     }
     
 
@@ -77,30 +77,36 @@ namespace StoreDL
         // /// </summary>
         // /// <param name="p_ord"></param> Customer Object
         // /// <returns>Order Added</returns>
-        public Orders AddOrders(Orders p_ord);
+        Orders AddOrders(Orders p_ord);
 
         /// <summary>
         /// Will Get All Orders in DB
         /// </summary>
         /// <returns>Returns List</returns>
-        public List<Orders> GetAllOrders();
+        List<Orders> GetAllOrders();
         /// <summary>
         /// Gets a Comprehensive Order List for a Customer
         /// </summary>
         /// <returns></returns>
-        public List<Orders> GetOrdersHistory(int p_custID);
+        List<Orders> GetOrdersHistory(int p_custID);
         /// <summary>
         /// Gets a Single Detailed Order History
         /// </summary>
         /// <param name="p_ordID"></param>
         /// <returns></returns>
-        public Orders GetOrderHistory(int p_ordID);
+        Orders GetOrderHistory(int p_ordID);
         /// <summary>
         /// Add Items to LineItem
         /// </summary>
         /// <param name="p_line"></param>
         /// <returns></returns>
-        public LineItems AddLineItems(LineItems p_line);
+        LineItems AddLineItems(LineItems p_line);
+        /// <summary>
+        /// Finds Line Items by Order ID
+        /// </summary>
+        /// <param name="p_ordID"></param>
+        /// <returns></returns>
+        public List<LineItems> SearchLineItems(int p_ordID);
 
     }
     

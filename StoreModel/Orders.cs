@@ -15,10 +15,8 @@ namespace StoreModel
             OrderCustID = 0;
             OrderStoreID = 0;
             OrderStatus = "";
-            OrderLineItems = new List<LineItems>(){ new LineItems() };
+            OrderLineItems = new List<LineItems>();
             OrderTotal = 0.00;
-            
-        
         }
         public override string ToString()
         {
