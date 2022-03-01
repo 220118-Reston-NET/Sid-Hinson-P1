@@ -24,7 +24,6 @@ namespace StoreTest
             ord.OrderStatus = orderstatus;
 
             //Assert
-            Assert.NotNull(ord.OrderDate);
             Assert.NotNull(ord.OrderStatus);
             Assert.Equal(ordertotal, ord.OrderTotal);
             Assert.Equal(orderstatus, ord.OrderStatus);
