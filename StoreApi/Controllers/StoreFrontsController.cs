@@ -15,25 +15,33 @@ namespace StoreApi.Controllers
     {
 
         private IStoreFrontsBL _storebl;
+        private ICustomersBL _custbl;
 
-        public StoreFrontsController(IStoreFrontsBL storebl)
+        public StoreFrontsController(IStoreFrontsBL storebl, ICustomersBL custbl)
         {
             _storebl = storebl;
+            _custbl = custbl;
         }
 
         
         [HttpPost("AddStoreFronts")]
-        public IActionResult AddStoreFronts([FromQuery] StoreFronts p_store)
+        public IActionResult AddStoreFronts([FromQuery] StoreFronts p_store, string email, string pass)
         {
-            try
+            if(_custbl.isAdmin(email,pass))
             {
-                return Created("Success", _storebl.AddStoreFronts(p_store));
+                try
+                {
+                    return Created("Success", _storebl.AddStoreFronts(p_store));
+                }
+                catch (System.Exception)
+                {
+                    return BadRequest();
+                }
             }
-            catch (System.Exception)
+            else
             {
-                return BadRequest();
+                return StatusCode(401, "No access allowed for this User");
             }
-
         }
     }
 }

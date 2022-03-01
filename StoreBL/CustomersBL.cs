@@ -1,5 +1,6 @@
 using StoreModel;
 using StoreDL;
+using System.Data.SqlClient;
 
 namespace StoreBL
 {
@@ -32,26 +33,6 @@ namespace StoreBL
                     .ToList(); 
         }
 
-
-
-
-        public int GetID(string p_email, string p_pass)
-        {   
-            int CustomerID = 0;
-            List<Customers> listofcustomers = _repo.GetAllCustomers();
-            for(int i = 0; i < listofcustomers.Count; i++)
-            {
-                if(listofcustomers[i].CustomerEmail.Contains(p_email) & listofcustomers[i].CPassword.Contains(p_pass))
-                {
-                    CustomerID = listofcustomers[i].CustomerID;    
-                }
-            }
-            return CustomerID;
-        }
-
-
-
-
         public List<Customers> GetAllCustomers()
         {
             List<Customers> listofcustomers = _repo.GetAllCustomers();
@@ -60,26 +41,17 @@ namespace StoreBL
 
         public bool isAdmin(string p_email, string p_pass)
         {
-            bool isAdmin = false;
-            List<Customers> listofcustomers = _repo.GetAllCustomers();
-            for(int i = 0; i < listofcustomers.Count; i++)
+            try
             {
-                if(listofcustomers[i].CustomerEmail.Contains(p_email) & listofcustomers[i].CPassword.Contains(p_pass))
-                {
-                    if(listofcustomers[i].isAdmin == true)
-                    {
-                        isAdmin = true;
-                    }
-                    else
-                    {
-                        isAdmin = false;
-                    }
-                }
+                Customers cust = new Customers();
+                cust = GetAllCustomers().Where(cust => cust.CustomerEmail.Equals(p_email) & cust.CPassword.Equals(p_pass)).First();
+                return cust.isAdmin;
             }
-            return isAdmin;
+            catch
+            {
+                throw new ArgumentOutOfRangeException();
+            }
         }
-
-
 
 
     }

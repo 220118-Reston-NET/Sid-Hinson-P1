@@ -26,30 +26,45 @@ namespace StoreApi.Controllers
 
         
         [HttpPost("AddInventory")]
-        public IActionResult AddInventory([FromQuery] Inventory p_inv)
+        public IActionResult AddInventory([FromQuery] Inventory p_inv, string email, string pass)
         {
-            try
+
+            if(_custbl.isAdmin(email,pass))
             {
-                return Created("Success", _invbl.AddInventory(p_inv));
+                try
+                {
+                    return Created("Success", _invbl.AddInventory(p_inv));
+                }
+                catch (System.Exception)
+                {
+                    return BadRequest();
+                }
             }
-            catch (System.Exception)
+            else
             {
-                return BadRequest();
+                return StatusCode(401, "No access allowed for this User");
             }
 
         }
 
         
         [HttpPut("UpdateInventory")]
-        public IActionResult UpdateInventory([FromQuery] Inventory p_inv)
+        public IActionResult UpdateInventory([FromQuery] Inventory p_inv, string email, string pass)
         {
-            try
+            if(_custbl.isAdmin(email,pass))
             {
-                return Ok(_invbl.UpdateInventory(p_inv));
+                try
+                {
+                    return Ok(_invbl.UpdateInventory(p_inv));
+                }
+                catch (System.Exception)
+                {
+                    return BadRequest();
+                }
             }
-            catch (System.Exception)
+            else
             {
-                return BadRequest();
+                return StatusCode(401, "No access allowed for this User");
             }
 
         }

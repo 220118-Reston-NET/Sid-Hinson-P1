@@ -23,11 +23,6 @@ namespace StoreBL
         /// <param name="p_email"></param>
         /// <param name="p_pass"></param>
         /// <returns></returns>
-        int GetID(string p_email, string p_pass);
-        /// <summary>
-        /// Gets All Custoemrs
-        /// </summary>
-        /// <returns></returns>
         List<Customers> GetAllCustomers();
         /// <summary>
         /// Returns True if Customer is Admin

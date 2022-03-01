@@ -17,11 +17,13 @@ namespace StoreApi.Controllers
 
         private IOrdersBL _ordbl;
 
-        public OrdersController(IOrdersBL ordbl)
+        private ICustomersBL _custbl;
+
+        public OrdersController(IOrdersBL ordbl, ICustomersBL custbl)
         {
             _ordbl = ordbl;
+            _custbl = custbl;
         }
-
 
         
         [HttpPost("AddOrders")]
@@ -40,43 +42,66 @@ namespace StoreApi.Controllers
 
 
         [HttpGet("GetOrdersHistory")]
-        public IActionResult GetOrdersHistory(int p_ordCustID)
+        public IActionResult GetOrdersHistory(int p_ordCustID, string email, string pass)
         {
-            try
+            if(_custbl.isAdmin(email,pass))
             {
-                return Ok(_ordbl.GetOrdersHistory(p_ordCustID));
+                try
+                {
+                    return Ok(_ordbl.GetOrdersHistory(p_ordCustID));
+                }
+                catch (SqlException)
+                {
+                    return NotFound();
+                }
             }
-            catch (SqlException)
+            else
             {
-                return NotFound();
+                return StatusCode(401, "No access allowed for this User");
             }
         }
 
         
         [HttpGet("GetDetailedOrderHistory")]
-        public IActionResult GetOrderHistory(int p_ordID)
+        public IActionResult GetOrderHistory(int p_ordID, string email, string pass)
         {
-            try
+            if(_custbl.isAdmin(email,pass))
             {
-                return Ok(_ordbl.GetOrderHistory(p_ordID));
+                try
+                {
+                    return Ok(_ordbl.GetOrderHistory(p_ordID));
+                }
+                catch (SqlException)
+                {
+                    return NotFound();
+                }
             }
-            catch (SqlException)
+            else
             {
-                return NotFound();
+                return StatusCode(401, "No access allowed for this User");
             }
         }
 
         [HttpGet("GetOrderHistoryLocation")]
-        public IActionResult GetOrderHistoryLocation(int p_storeID)
+        public IActionResult GetOrderHistoryLocation(int p_storeID, string email, string pass)
         {
-            try
+            if(_custbl.isAdmin(email,pass))
             {
-                return Ok(_ordbl.SearchStoreOrders(p_storeID));
+                try
+                {
+                    return Ok(_ordbl.SearchStoreOrders(p_storeID));
+                }
+                catch (SqlException)
+                {
+                    return NotFound();
+                }
             }
-            catch (SqlException)
+            else
             {
-                return NotFound();
+                return StatusCode(401, "No access allowed for this User");
             }
+
+
         }
     
     }

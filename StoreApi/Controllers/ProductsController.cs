@@ -15,25 +15,33 @@ namespace StoreApi.Controllers
     {
 
         private IProductsBL _prodbl;
+        private ICustomersBL _custbl;
 
-        public ProductsController(IProductsBL prodbl)
+        public ProductsController(IProductsBL prodbl, ICustomersBL custbl)
         {
             _prodbl = prodbl;
+            _custbl = custbl;
         }
 
         
         [HttpPost("AddProducts")]
-        public IActionResult AddProducts([FromQuery] Products p_prod)
+        public IActionResult AddProducts([FromQuery] Products p_prod, string email, string pass)
         {
-            try
+            if(_custbl.isAdmin(email,pass))
             {
-                return Created("Success", _prodbl.AddProducts(p_prod));
+                try
+                {
+                    return Created("Success", _prodbl.AddProducts(p_prod));
+                }
+                catch (System.Exception)
+                {
+                    return BadRequest();
+                }
             }
-            catch (System.Exception)
+            else
             {
-                return BadRequest();
+                return StatusCode(401, "No access allowed for this User");
             }
-
         }
 
     }
