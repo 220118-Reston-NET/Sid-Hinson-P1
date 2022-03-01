@@ -31,15 +31,18 @@ namespace StoreApi.Controllers
             {
                 try
                 {
+                    Log.Information("User is Adding a Product");
                     return Created("Success", _prodbl.AddProducts(p_prod));
                 }
                 catch (System.Exception)
                 {
+                    Log.Information("User has made a bad request");
                     return BadRequest();
                 }
             }
             else
             {
+                Log.Information("Access is not allowed for The User");
                 return StatusCode(401, "No access allowed for this User");
             }
         }

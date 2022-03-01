@@ -47,9 +47,9 @@ namespace StoreBL
                 cust = GetAllCustomers().Where(cust => cust.CustomerEmail.Equals(p_email) & cust.CPassword.Equals(p_pass)).First();
                 return cust.isAdmin;
             }
-            catch
+            catch(SqlException)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new Exception();
             }
         }
 

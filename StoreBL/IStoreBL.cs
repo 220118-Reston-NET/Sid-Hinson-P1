@@ -73,29 +73,9 @@ namespace StoreBL
         /// <returns></returns>
         Products AddProducts(Products p_product);
         /// <summary>
-        /// Finds Product By Name and Store ID
-        /// </summary>
-        /// <param name="p_productName"></param>
-        /// <param name="p_productStoreID"></param>
-        /// <returns></returns>
-        Products SearchForProduct(string p_productName, int p_productStoreID);
-        /// <summary>
         /// Gets Price of Product
         /// </summary>
         /// <param name="p_productID"></param>
-        /// <returns></returns>
-        double GetPrice(int p_productID);
-        /// <summary>
-        /// Gets ID of a Product
-        /// </summary>
-        /// <param name="p_prodName"></param>
-        /// <param name="p_prodComp"></param>
-        /// <param name="p_StoreID"></param>
-        /// <returns></returns>
-        int GetID(string p_prodName, string p_prodComp, int p_StoreID);
-        /// <summary>
-        /// Gets All products
-        /// </summary>
         /// <returns></returns>
         List<Products> GetAllProducts();
  
@@ -118,35 +98,9 @@ namespace StoreBL
         /// <returns></returns>
         List<Orders> GetAllOrders();
         /// <summary>
-        /// Will return List of objects related to Search query through p_name parameter
-        /// </summary>
-        /// <param name="p_order"></param>
-        /// <returns>Filtered Search Results </returns>
-        // List<Orders> SearchOrders(string p_email);
-        List<Orders> SearchOrders(int p_custID, string p_status);
-        /// <summary>
-        /// Searches for order
-        /// </summary>
-        /// <param name="p_custID"></param>
-        /// <param name="p_storeID"></param>
-        /// <returns></returns>
-        List<Orders> SearchForOrderbyID(int p_custID, int p_storeID);
-        /// <summary>
         /// Searches for status of Order by CustID and StoreID
         /// </summary>
         /// <param name="p_ordID"></param>
-        /// <returns></returns>
-        Orders SearchOrdStat(int p_ordID);
-        /// <summary>
-        /// Updates the Status Qualifier of an Order
-        /// </summary>
-        /// <param name="p_ordID"></param>
-        /// <param name="p_stat"></param>
-        void UpdateOrdStat(int p_ordID, string p_stat);
-        /// <summary>
-        /// Gets a comprehensive Order History
-        /// </summary>
-        /// <param name="p_custID"></param>
         /// <returns></returns>
         List<Orders> GetOrdersHistory(int p_custID);
         /// <summary>
@@ -160,12 +114,6 @@ namespace StoreBL
         /// </summary>
         /// <param name="p_line"></param>
         /// <returns>linetime</returns>
-        LineItems AddLineItems(LineItems p_line);
-        /// <summary>
-        /// SearchOrdersByStore
-        /// </summary>
-        /// <param name="p_storeID"></param>
-        /// <returns></returns>
         List<Orders> SearchStoreOrders(int p_storeID);
         /// <summary>
         /// Adds Items to a LineItem
@@ -174,18 +122,6 @@ namespace StoreBL
         /// <param name="p_prodQuant"></param>
         /// <param name="p_storeID"></param>
         /// <param name="p_price"></param>
-        /// <returns></returns>
-        List<LineItems> SearchLineItems(int p_orderID);
-        /// <summary>
-        /// Displays Cart
-        /// </summary>
-        /// <param name="p_list"></param>
-        /// <returns></returns>
-        LineItems AddItemFields(int p_prodID, int p_prodQuant, int p_storeID, double p_price);
-        /// <summary>
-        /// Searches Line Items
-        /// </summary>
-        /// <param name="p_orderID"></param>
         /// <returns></returns>
  }  
 
@@ -205,13 +141,6 @@ namespace StoreBL
         /// <param name="p_storeID"></param>
         /// <returns></returns>
         List<Inventory> SearchLocationInventory(int p_storeID);
-        /// <summary>
-        /// Finds the Par Level of Inventory
-        /// </summary>
-        /// <param name="p_storeID"></param>
-        /// <param name="p_prodname"></param>
-        /// <returns></returns>
-        Inventory FindItemLevel(int p_storeID, int p_prodID);
         /// <summary>
         /// Update Inventory
         /// </summary>

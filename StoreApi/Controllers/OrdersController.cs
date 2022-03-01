@@ -31,10 +31,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("User is Adding an Order");
                 return Created("Success", _ordbl.AddOrders(p_ord));
             }
             catch (System.Exception)
             {
+                Log.Information("Displaying bad request to User");
                 return BadRequest();
             }
 
@@ -48,15 +50,18 @@ namespace StoreApi.Controllers
             {
                 try
                 {
+                    Log.Information("Displaying the Get Orders History.");
                     return Ok(_ordbl.GetOrdersHistory(p_ordCustID));
                 }
                 catch (SqlException)
                 {
+                    Log.Information("Displaying Not Found to User.");
                     return NotFound();
                 }
             }
             else
             {
+                Log.Information("Displaying No access allowed 401 to User.");
                 return StatusCode(401, "No access allowed for this User");
             }
         }
@@ -68,11 +73,13 @@ namespace StoreApi.Controllers
             if(_custbl.isAdmin(email,pass))
             {
                 try
-                {
+                {   
+                    Log.Information("Displaying Order History to User.");
                     return Ok(_ordbl.GetOrderHistory(p_ordID));
                 }
                 catch (SqlException)
                 {
+                    Log.Information("Displaying Not Found to User.");
                     return NotFound();
                 }
             }
@@ -88,16 +95,18 @@ namespace StoreApi.Controllers
             if(_custbl.isAdmin(email,pass))
             {
                 try
-                {
+                {   Log.Information("Displaying Search Store History to User.");
                     return Ok(_ordbl.SearchStoreOrders(p_storeID));
                 }
                 catch (SqlException)
                 {
+                    Log.Information("Displaying Not Found to User.");
                     return NotFound();
                 }
             }
             else
-            {
+            {   
+                Log.Information("Displaying No Access Allowed for this User.");
                 return StatusCode(401, "No access allowed for this User");
             }
 

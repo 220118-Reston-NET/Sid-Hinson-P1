@@ -54,16 +54,18 @@ namespace StoreApi.Controllers
             if(_custbl.isAdmin(email,pass))
             {
                 try
-                {
+                {   Log.Information("User is updating Inventory.");
                     return Ok(_invbl.UpdateInventory(p_inv));
                 }
                 catch (System.Exception)
                 {
+                    Log.Information("Displaying Bad Request to User.");
                     return BadRequest();
                 }
             }
             else
-            {
+            {   
+                Log.Information("Displaying No Access Allowed to User, status 401.");
                 return StatusCode(401, "No access allowed for this User");
             }
 
@@ -74,11 +76,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Displaying Location Inventory to User.");
                 return Ok(_invbl.SearchLocationInventory(p_storeID));
             }
             catch (System.Exception)
             {
-                
+                Log.Information("Displaying Bad Request to User.");
                 return BadRequest();
             }
 

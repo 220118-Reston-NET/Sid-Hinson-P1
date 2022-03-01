@@ -96,22 +96,11 @@ namespace StoreDL
         /// <returns></returns>
         public Orders GetOrderHistory(int p_ordID);
         /// <summary>
-        /// Updates Order Status
-        /// </summary>
-        /// <param name="p_ordID"></param>
-        /// <param name="p_stat"></param>
-        public void UpdateOrdStat(int p_ordID, string p_stat);
-        /// <summary>
         /// Add Items to LineItem
         /// </summary>
         /// <param name="p_line"></param>
         /// <returns></returns>
         public LineItems AddLineItems(LineItems p_line);
-        /// <summary>
-        /// Gets All Line Items
-        /// </summary>
-        /// <returns></returns>
-        public List<LineItems> GetAllLineItems();
 
     }
     

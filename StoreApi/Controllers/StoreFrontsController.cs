@@ -31,15 +31,18 @@ namespace StoreApi.Controllers
             {
                 try
                 {
+                    Log.Information("User is Adding a StoreFront");
                     return Created("Success", _storebl.AddStoreFronts(p_store));
                 }
                 catch (System.Exception)
                 {
+                    Log.Information("Displaying Bad Request to User");
                     return BadRequest();
                 }
             }
             else
             {
+                Log.Information("Displaying User is Not Allowed");
                 return StatusCode(401, "No access allowed for this User");
             }
         }

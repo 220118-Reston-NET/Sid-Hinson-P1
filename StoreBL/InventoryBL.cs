@@ -19,16 +19,6 @@ namespace StoreBL
             return _repo.AddInventory(p_inv);
         }
 
-
-
-        public Inventory FindItemLevel(int p_storeID, int p_prodID)
-        {
-            List<Inventory> listofInventory = _repo.GetAllInventory();
-            Inventory FoundItem = new Inventory();
-            FoundItem = GetAllInventory().Where(inv => inv.StoreID.Equals(p_storeID) & inv.ProductID.Equals(p_prodID)).First();
-            return FoundItem;
-        }
-
         public List<Inventory> SearchLocationInventory(int p_storeID)
         {
             List<Inventory> listofInventory = _repo.GetAllInventory();
