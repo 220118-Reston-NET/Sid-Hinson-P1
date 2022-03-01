@@ -102,39 +102,6 @@ namespace StoreDL
         }
 
 
-
-
-        // public List<Orders> GetOrdersHistory(int p_ordCustID)
-        // {
-        //     List<Orders> listoforders = new List<Orders>();
-        //     string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus  
-        //                         FROM Orders o 
-        //                         WHERE o.OrderCustID = @OrderCustID";
-
-
-        //     using(SqlConnection con = new SqlConnection(_ConnectionStrings))
-        //     {
-        //             con.Open();
-        //             SqlCommand command = new SqlCommand(sqlQuery, con);
-        //             command.Parameters.AddWithValue("@OrderCustID", p_ordCustID);
-        //             SqlDataReader reader = command.ExecuteReader();
-        //             while(reader.Read())
-        //             {
-
-        //                 listoforders.Add(new Orders(){
-        //                         OrderID = reader.GetInt32(0),
-        //                         OrderCustID = reader.GetInt32(1),
-        //                         OrderStoreID = reader.GetInt32(2),
-        //                         OrderDate = reader.GetDateTime(3),
-        //                         OrderTotal = Convert.ToDouble(reader.GetDecimal(4)),
-        //                         OrderStatus = reader.GetString(5),
-        //                         });
-        //             }
-        //     }
-
-        //     return listoforders;
-        // }
-
         public List<Orders> GetOrdersHistory(int p_ordCustID)
         {
             List<Orders> listoforders = new List<Orders>();

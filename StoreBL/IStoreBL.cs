@@ -110,19 +110,22 @@ namespace StoreBL
         /// <returns></returns>
         Orders GetOrderHistory(int p_ordID);
         /// <summary>
-        /// Add Line Items to Repo
+        /// Searches Store With ID
         /// </summary>
-        /// <param name="p_line"></param>
-        /// <returns>linetime</returns>
+        /// <param name="p_storeID"></param>
+        /// <returns></returns>
         List<Orders> SearchStoreOrders(int p_storeID);
         /// <summary>
-        /// Adds Items to a LineItem
+        /// Gets All Line Items
         /// </summary>
-        /// <param name="p_prodID"></param>
-        /// <param name="p_prodQuant"></param>
-        /// <param name="p_storeID"></param>
-        /// <param name="p_price"></param>
         /// <returns></returns>
+        List<LineItems> GetAllLineItems();
+        /// <summary>
+        /// Add Line Items
+        /// </summary>
+        /// <param name="p_line"></param>
+        /// <returns></returns>
+        LineItems AddLineItems(LineItems p_line);
  }  
 
 

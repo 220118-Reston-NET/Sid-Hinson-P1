@@ -106,7 +106,12 @@ namespace StoreDL
         /// </summary>
         /// <param name="p_ordID"></param>
         /// <returns></returns>
-        public List<LineItems> SearchLineItems(int p_ordID);
+        List<LineItems> SearchLineItems(int p_ordID);
+        /// <summary>
+        /// Grabs All LineItems
+        /// </summary>
+        /// <returns></returns>
+        List<LineItems> GetAllLineItems();
 
     }
     
