@@ -88,7 +88,7 @@ namespace StoreApi.Controllers
         [HttpGet("GetOrdersHistoryTargeted")]
         public IActionResult GetOrdersHistoryTargeted(int p_ordCustID, string email, string pass, string p_target)
         {
-            List<Orders> _listStoreOrder = _ordbl.SearchCustomerStoreOrders(p_ordCustID);
+            List<Orders> _listStoreOrder = _ordbl.GetOrderHistoryLocation(p_ordCustID);
 
             Log.Information("User is entering Credentials.");
             if(_custbl.isAdmin(email,pass))
@@ -165,7 +165,7 @@ namespace StoreApi.Controllers
             {
                 try
                 {   Log.Information("Displaying Search Store History to User.");
-                    return Ok(_ordbl.SearchCustomerStoreOrders(p_storeID));
+                    return Ok(_ordbl.GetOrderHistoryLocation(p_storeID));
                 }
                 catch (SqlException)
                 {

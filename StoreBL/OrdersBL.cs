@@ -34,11 +34,11 @@ namespace StoreBL
         /// </summary>
         /// <param name="p_ordCustID"></param>
         /// <returns>list orders</returns>
-        public List<Orders> SearchCustomerStoreOrders(int p_ordCustID)
+        public List<Orders> GetOrderHistoryLocation(int p_storeID)
         {
             List<Orders> listoforders = _repo.GetAllOrders();
             return listoforders
-                    .Where(Orders => Orders.OrderCustID.Equals(p_ordCustID))
+                    .Where(Orders => Orders.OrderStoreID.Equals(p_storeID))
                     .ToList(); //ToList method converts into return List collection
         }
         /// <summary>
