@@ -112,6 +112,10 @@ namespace StoreDL
         /// </summary>
         /// <returns></returns>
         List<LineItems> GetAllLineItems();
+        /// <summary>
+        /// Gets All Inventory
+        /// </summary>
+        /// <returns></returns>
 
     }
     
@@ -125,18 +129,18 @@ namespace StoreDL
         /// </summary>
         /// <param name="p_inv"></param>
         /// <returns>inventory obj</returns>
-        public Inventory AddInventory(Inventory p_inv);
+        Inventory AddInventory(Inventory p_inv);
         /// <summary>
         /// Gets All Inventory
         /// </summary>
         /// <returns></returns>
-        public List<Inventory> GetAllInventory();
+        List<Inventory> GetAllInventory();
         /// <summary>
         /// Updates Inventory with a constructed INV object
         /// </summary>
         /// <param name="p_inv"></param>
         /// <returns></returns>
-        public Inventory UpdateInventory(Inventory p_inv);
+        Inventory UpdateInventory(Inventory p_inv);
 
     }
 }
