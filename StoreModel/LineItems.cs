@@ -29,7 +29,7 @@ namespace StoreModel
                 }
                 else
                 {
-                    throw new Exception("Quantity must equal or be greater to Zero.");
+                    throw new ArgumentException("Quantity must equal or be greater to Zero.");
                 }
         
             }

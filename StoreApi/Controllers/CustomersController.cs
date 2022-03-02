@@ -14,7 +14,7 @@ namespace StoreApi.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private ICustomersBL _custbl;
+        private readonly ICustomersBL _custbl;
         public CustomersController(ICustomersBL p_custbl)
         {
             _custbl = p_custbl;
@@ -22,17 +22,26 @@ namespace StoreApi.Controllers
         
         
         [HttpPost("AddCustomers")]
-        public IActionResult AddCustomers([FromQuery] Customers p_cust)
+        public IActionResult AddCustomers([FromQuery] Customers p_cust, string email, string pass)
         {
-            try
+            Log.Information("User is entering Credentials.");
+            if(_custbl.isAdmin(email,pass))
             {
-                Log.Information("User is adding a Customer");
-                return Created("Success", _custbl.AddCustomers(p_cust));
+                try
+                {
+                    Log.Information("User is adding a Customer");
+                    return Created("Success", _custbl.AddCustomers(p_cust));
+                }
+                catch (System.Exception)
+                {
+                    Log.Information("Bad Request to User");
+                    return BadRequest();
+                }
             }
-            catch (System.Exception)
+            else
             {
-                Log.Information("Bad Request to User");
-                return BadRequest();
+                Log.Information("Displaying No Access Allowed for User.");
+                return StatusCode(401, "No access allowed for this User");
             }
 
         }

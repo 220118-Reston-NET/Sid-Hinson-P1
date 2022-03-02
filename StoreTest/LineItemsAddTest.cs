@@ -24,7 +24,7 @@ namespace StoreTest
             };
 
             //Mock The Repo that is a dependency
-            Mock<ISQLORepository> mockRepo = new Mock<ISQLORepository>();
+            Mock<ISqloRepository> mockRepo = new Mock<ISqloRepository>();
 
             //Mock GetAllLineItems
             mockRepo.Setup(repo => repo.AddLineItems(line)).Returns(line);

@@ -2,12 +2,12 @@ using System.Data.SqlClient;
 using StoreModel;
 namespace StoreDL
 {
-    public class SQLCRepository : ISQLCRepository
+    public class SqlcRepository : ISqlcRepository
     {
 
    
         private readonly string _ConnectionStrings;
-        public SQLCRepository(string p_ConnectionStrings)
+        public SqlcRepository(string p_ConnectionStrings)
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
@@ -16,7 +16,7 @@ namespace StoreDL
              public Customers AddCustomers(Customers p_cust)
         {
             string sqlQuery = @"insert into Customers 
-                                values (@CFirstName, @CLastName, @CustomerAddress, @CustomerState, @CustomerCity, @CustomerZipCode, @CustCountry, @CustomerEmail, @CPassword)";
+                                values (@CFirstName, @CLastName, @CustomerAddress, @CustomerState, @CustomerCity, @CustomerZipCode, @CustCountry, @CustomerEmail, @CPassword, @isAdmin)";
             using(SqlConnection con = new SqlConnection(_ConnectionStrings))
             {                        
                 con.Open();
@@ -30,6 +30,7 @@ namespace StoreDL
                 command.Parameters.AddWithValue("@CustCountry", p_cust.CustomerCountry.ToUpper());
                 command.Parameters.AddWithValue("@CustomerEmail",p_cust.CustomerEmail.ToUpper());
                 command.Parameters.AddWithValue("@CPassword", p_cust.CPassword);
+                command.Parameters.AddWithValue("@isAdmin", p_cust.isAdmin);
                 command.ExecuteNonQuery();
             }
             return p_cust;

@@ -14,9 +14,9 @@ namespace StoreApi.Controllers
     public class InventoryController : ControllerBase
     {
 
-        private IInventoryBL _invbl;
+        private readonly IInventoryBL _invbl;
 
-        private ICustomersBL _custbl;
+        private readonly ICustomersBL _custbl;
 
         public InventoryController(IInventoryBL invbl, ICustomersBL custbl)
         {

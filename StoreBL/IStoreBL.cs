@@ -114,7 +114,7 @@ namespace StoreBL
         /// </summary>
         /// <param name="p_storeID"></param>
         /// <returns></returns>
-        List<Orders> SearchStoreOrders(int p_storeID);
+        List<Orders> SearchCustomerStoreOrders(int p_storeID);
         /// <summary>
         /// Gets All Line Items
         /// </summary>

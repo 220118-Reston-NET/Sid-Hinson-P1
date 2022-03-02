@@ -5,8 +5,8 @@ namespace StoreBL
 {
     public class OrdersBL : IOrdersBL
     {
-        private ISQLORepository _repo;
-        public OrdersBL(ISQLORepository p_repo)
+        private readonly ISqloRepository _repo;
+        public OrdersBL(ISqloRepository p_repo)
         {
             
             _repo = p_repo;
@@ -23,7 +23,7 @@ namespace StoreBL
             return listoforders;
         }
 
-        public List<Orders> SearchStoreOrders(int p_ordCustID)
+        public List<Orders> SearchCustomerStoreOrders(int p_ordCustID)
         {
             List<Orders> listoforders = _repo.GetAllOrders();
             return listoforders

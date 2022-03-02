@@ -29,7 +29,7 @@ namespace StoreTest
             expectedlistofline.Add(line1);
 
             //Mock The Repo that is a dependency
-            Mock<ISQLORepository> mockRepo = new Mock<ISQLORepository>();
+            Mock<ISqloRepository> mockRepo = new Mock<ISqloRepository>();
             //Mock GetAllLineItems
             mockRepo.Setup(repo => repo.GetAllLineItems()).Returns(expectedlistofline);
 

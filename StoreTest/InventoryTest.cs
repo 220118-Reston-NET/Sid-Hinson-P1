@@ -50,7 +50,7 @@ namespace StoreTest
             };
 
             //Mock The Repo that is a dependency
-            Mock<ISQLInvRepository> mockRepo = new Mock<ISQLInvRepository>();
+            Mock<ISqlInvRepository> mockRepo = new Mock<ISqlInvRepository>();
 
             //Mock UpdateInventory
             mockRepo.Setup(repo => repo.UpdateInventory(p_inv)).Returns(p_inv);

@@ -2,7 +2,7 @@ using System.Data.SqlClient;
 using StoreModel;
 namespace StoreDL
 {
-    public interface ISQLCRepository
+    public interface ISqlcRepository
     {
         /// <summary>
         /// Add Customers to DB
@@ -22,7 +22,7 @@ namespace StoreDL
 
 
 
-        public interface ISQLPRepository
+        public interface ISqlpRepository
     {
         /// <summary>
         /// Add Products to DB
@@ -44,7 +44,7 @@ namespace StoreDL
 
 
 
-        public interface ISQLSRepository
+        public interface ISqLsRepository
     {
         /// <summary>
         /// Add Storefronts to DB
@@ -70,7 +70,7 @@ namespace StoreDL
 
 
 
-        public interface ISQLORepository
+        public interface ISqloRepository
     {
         // /// <summary>
         // /// Add Orders to DB
@@ -118,7 +118,7 @@ namespace StoreDL
 
 
 
-        public interface ISQLInvRepository
+        public interface ISqlInvRepository
     {
         /// <summary>
         /// Adds Inventory to DB

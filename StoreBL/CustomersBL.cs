@@ -7,19 +7,18 @@ namespace StoreBL
 
     public class CustomersBL : ICustomersBL
     {
-        private ISQLCRepository _repo;
-        public CustomersBL(ISQLCRepository p_repo)
+        private readonly ISqlcRepository _repo;
+        public CustomersBL(ISqlcRepository p_repo)
         {
             _repo = p_repo;
         }
 
 
         
-        public Customers AddCustomers(Customers p_cust)
+        public Customers AddCustomers(Customers p_custs)
         {
-            List<Customers> listofcustomers = _repo.GetAllCustomers();
             Console.WriteLine("Adding Customer............");
-            return _repo.AddCustomers(p_cust);
+            return _repo.AddCustomers(p_custs);
         }
 
 
@@ -43,13 +42,14 @@ namespace StoreBL
         {
             try
             {
-                Customers cust = new Customers();
-                cust = GetAllCustomers().Where(cust => cust.CustomerEmail.Equals(p_email) & cust.CPassword.Equals(p_pass)).First();
+                // Customers cust = new Customers();
+                // Customers cust = GetAllCustomers().Where(cust => cust.CustomerEmail.Equals(p_email) && cust.CPassword.Equals(p_pass)).First();
+                Customers cust = GetAllCustomers().First(cust => cust.CustomerEmail.Equals(p_email) && cust.CPassword.Equals(p_pass));
                 return cust.isAdmin;
             }
             catch(SqlException)
             {
-                throw new Exception();
+                throw new NullReferenceException();
             }
         }
 

@@ -14,8 +14,8 @@ namespace StoreApi.Controllers
     public class StoreFrontsController : ControllerBase
     {
 
-        private IStoreFrontsBL _storebl;
-        private ICustomersBL _custbl;
+        private readonly IStoreFrontsBL _storebl;
+        private readonly ICustomersBL _custbl;
 
         public StoreFrontsController(IStoreFrontsBL storebl, ICustomersBL custbl)
         {

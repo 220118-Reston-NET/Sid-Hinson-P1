@@ -2,11 +2,11 @@ using System.Data.SqlClient;
 using StoreModel;
 namespace StoreDL
 {
-    public class SQLORepository : ISQLORepository
+    public class SQLoRepository : ISqloRepository
     {
 
         private readonly string _ConnectionStrings;
-        public SQLORepository(string p_ConnectionStrings)
+        public SQLoRepository(string p_ConnectionStrings)
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
@@ -45,15 +45,13 @@ namespace StoreDL
             }
 
             //Find the OrderID
-            List<Orders> getcount = new List<Orders>();
-            getcount = GetAllOrders();
+            List<Orders> getcount = GetAllOrders();
             p_ord.OrderID = getcount.Count();
 
             foreach(var item in p_ord.OrderLineItems)
             {
                 item.OrderID = p_ord.OrderID;
                 AddLineItems(item);
-
             }
             
 
@@ -108,7 +106,7 @@ namespace StoreDL
         }
 
 
-        public List<Orders> GetOrdersHistory(int p_ordCustID)
+        public List<Orders> GetOrdersHistory(int p_CustID)
         {
             List<Orders> listoforders = new List<Orders>();
             string sqlQuery =@"SELECT o.OrderID, o.OrderCustID, o.OrderStoreID, o.OrderDate, o.OrderTotal, o.OrderStatus  
@@ -119,7 +117,7 @@ namespace StoreDL
             {
                     con.Open();
                     SqlCommand command = new SqlCommand(sqlQuery, con);
-                    command.Parameters.AddWithValue("@OrderCustID", p_ordCustID);
+                    command.Parameters.AddWithValue("@OrderCustID", p_CustID);
                     SqlDataReader reader = command.ExecuteReader();
                     while(reader.Read())
                     {
@@ -246,8 +244,7 @@ namespace StoreDL
 
         public List<LineItems> SearchLineItems(int p_ordID)
         {
-            List<LineItems> lineItemsOrderID = new List<LineItems>();
-            lineItemsOrderID = GetAllLineItems()
+             List<LineItems> lineItemsOrderID = GetAllLineItems()
                                 .Where(lineitem => lineitem.OrderID.Equals(p_ordID))
                                 .ToList();
             return lineItemsOrderID;

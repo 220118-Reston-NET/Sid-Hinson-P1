@@ -2,11 +2,11 @@ using System.Data.SqlClient;
 using StoreModel;
 namespace StoreDL
 {
-    public class SQLPRepository : ISQLPRepository
+    public class SqlpRepository : ISqlpRepository
     {
 
         private readonly string _ConnectionStrings;
-        public SQLPRepository(string p_ConnectionStrings)
+        public SqlpRepository(string p_ConnectionStrings)
         {
             _ConnectionStrings = p_ConnectionStrings;
         }

@@ -2,10 +2,10 @@ using System.Data.SqlClient;
 using StoreModel;
 namespace StoreDL
 {
-    public class SQLSRepository : ISQLSRepository
+    public class SqlsRepository : ISqLsRepository
     {
         private readonly string _ConnectionStrings;
-        public SQLSRepository(string p_ConnectionStrings)
+        public SqlsRepository(string p_ConnectionStrings)
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
@@ -59,7 +59,7 @@ namespace StoreDL
 
 
 
-        public List<StoreFronts> GetStoreHist(int p_storeID)
+        public List<StoreFronts> GetStoreHist(int p_store)
         {
             List<StoreFronts> listofstorefronts = new List<StoreFronts>();
             string sqlQuery =@"SELECT sf.StoreID , sf.StoreAddress, sf.StoreZipCode, sf.StoreState, sf.StoreCity 
@@ -69,7 +69,7 @@ namespace StoreDL
             {
                 con.Open();
                 SqlCommand command = new SqlCommand(sqlQuery, con);
-                command.Parameters.AddWithValue("@StoreID", p_storeID);
+                command.Parameters.AddWithValue("@StoreID", p_store);
                 SqlDataReader reader = command.ExecuteReader();
                 while(reader.Read())
                 {

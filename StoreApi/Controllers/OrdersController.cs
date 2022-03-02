@@ -15,9 +15,9 @@ namespace StoreApi.Controllers
     public class OrdersController : ControllerBase
     {
 
-        private IOrdersBL _ordbl;
+        private readonly IOrdersBL _ordbl;
 
-        private ICustomersBL _custbl;
+        private readonly ICustomersBL _custbl;
 
         public OrdersController(IOrdersBL ordbl, ICustomersBL custbl)
         {
@@ -70,7 +70,7 @@ namespace StoreApi.Controllers
         [HttpGet("GetOrdersHistoryTargeted")]
         public IActionResult GetOrdersHistoryTargeted(int p_ordCustID, string email, string pass, string p_target)
         {
-            List<Orders> _listStoreOrder = _ordbl.SearchStoreOrders(p_ordCustID);
+            List<Orders> _listStoreOrder = _ordbl.SearchCustomerStoreOrders(p_ordCustID);
 
             Log.Information("User is entering Credentials.");
             if(_custbl.isAdmin(email,pass))
@@ -101,7 +101,7 @@ namespace StoreApi.Controllers
                 Log.Information("Displaying Not Found.");
                 return StatusCode(401, "No access allowed for this User");
             }
-            // return _listStoreOrder;
+            
         }
         
         [HttpGet("GetDetailedOrderHistory")]
@@ -133,7 +133,7 @@ namespace StoreApi.Controllers
             {
                 try
                 {   Log.Information("Displaying Search Store History to User.");
-                    return Ok(_ordbl.SearchStoreOrders(p_storeID));
+                    return Ok(_ordbl.SearchCustomerStoreOrders(p_storeID));
                 }
                 catch (SqlException)
                 {

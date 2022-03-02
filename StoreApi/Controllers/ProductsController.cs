@@ -14,8 +14,8 @@ namespace StoreApi.Controllers
     public class ProductsController : ControllerBase
     {
 
-        private IProductsBL _prodbl;
-        private ICustomersBL _custbl;
+        private readonly IProductsBL _prodbl;
+        private readonly ICustomersBL _custbl;
 
         public ProductsController(IProductsBL prodbl, ICustomersBL custbl)
         {

@@ -24,7 +24,7 @@ namespace StoreTest
             };
 
             //Mock The Repo that is a dependency
-            Mock<ISQLORepository> mockRepo = new Mock<ISQLORepository>();
+            Mock<ISqloRepository> mockRepo = new Mock<ISqloRepository>();
 
             //Mock GetAllOrders
             mockRepo.Setup(repo => repo.AddOrders(p_ord)).Returns(p_ord);

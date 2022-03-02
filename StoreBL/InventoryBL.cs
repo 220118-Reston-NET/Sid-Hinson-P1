@@ -5,8 +5,8 @@ namespace StoreBL
 {
     public class InventoryBL : IInventoryBL
     {
-        private ISQLInvRepository _repo;
-        public InventoryBL(ISQLInvRepository p_repo)
+        private readonly ISqlInvRepository _repo;
+        public InventoryBL(ISqlInvRepository p_repo)
         {
             _repo = p_repo;
         }
@@ -14,7 +14,6 @@ namespace StoreBL
 
         public Inventory AddInventory(Inventory p_inv)
         {
-            List<Inventory> listofInventory = _repo.GetAllInventory();
             Console.WriteLine("Adding Inventory............");
             return _repo.AddInventory(p_inv);
         }
