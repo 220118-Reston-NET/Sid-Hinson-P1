@@ -8,6 +8,9 @@ using Xunit;
 namespace StoreTest
 {
 
+    /// <summary>
+    /// Should Set Valid Product Data
+    /// </summary>
     public class ProductTest
     {
         [Fact]

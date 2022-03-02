@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should Add Products TEST
+    /// </summary>
     public class ProductBLAddTest
     {
         [Fact]

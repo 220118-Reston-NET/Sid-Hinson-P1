@@ -25,7 +25,11 @@ namespace StoreApi.Controllers
             _custbl = custbl;
         }
 
-        
+        /// <summary>
+        /// Adds Orders
+        /// </summary>
+        /// <param name="p_ord"></param>
+        /// <returns>Order Object</returns>
         [HttpPost("AddOrders")]
         public IActionResult AddOrders([FromBody] Orders p_ord)
         {
@@ -42,7 +46,13 @@ namespace StoreApi.Controllers
 
         }
 
-
+        /// <summary>
+        /// Gets Orders History
+        /// </summary>
+        /// <param name="p_ordCustID"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         [HttpGet("GetOrdersHistory")]
         public IActionResult GetOrdersHistory(int p_ordCustID, string email, string pass)
         {
@@ -67,6 +77,14 @@ namespace StoreApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets a Trageted Orders History ASC/DESC
+        /// </summary>
+        /// <param name="p_ordCustID"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <param name="p_target"></param>
+        /// <returns></returns>
         [HttpGet("GetOrdersHistoryTargeted")]
         public IActionResult GetOrdersHistoryTargeted(int p_ordCustID, string email, string pass, string p_target)
         {
@@ -104,6 +122,13 @@ namespace StoreApi.Controllers
             
         }
         
+        /// <summary>
+        /// Get Detailed Order History
+        /// </summary>
+        /// <param name="p_ordID"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns>List of Orders History</returns>
         [HttpGet("GetDetailedOrderHistory")]
         public IActionResult GetOrderHistory(int p_ordID, string email, string pass)
         {
@@ -126,6 +151,13 @@ namespace StoreApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Get Order History By Location
+        /// </summary>
+        /// <param name="p_storeID"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         [HttpGet("GetOrderHistoryLocation")]
         public IActionResult GetOrderHistoryLocation(int p_storeID, string email, string pass)
         {

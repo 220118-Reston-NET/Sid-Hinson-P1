@@ -12,7 +12,11 @@ namespace StoreDL
             _ConnectionStrings = p_ConnectionStrings;
         }
 
-
+        /// <summary>
+        /// Adds Customers to Repo
+        /// </summary>
+        /// <param name="p_cust"></param>
+        /// <returns>Customer Object</returns>
              public Customers AddCustomers(Customers p_cust)
         {
             string sqlQuery = @"insert into Customers 
@@ -35,9 +39,10 @@ namespace StoreDL
             }
             return p_cust;
         }
-
-
-
+        /// <summary>
+        /// Gtes All Customers
+        /// </summary>
+        /// <returns>List of Customers</returns>
         public List<Customers> GetAllCustomers()
         {
             List<Customers> listofcustomers = new List<Customers>();

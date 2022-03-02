@@ -14,7 +14,11 @@ namespace StoreBL
         }
 
 
-        
+        /// <summary>
+        /// Adds Customers
+        /// </summary>
+        /// <param name="p_custs"></param>
+        /// <returns>p_custs object</returns>
         public Customers AddCustomers(Customers p_custs)
         {
             Console.WriteLine("Adding Customer............");
@@ -22,7 +26,12 @@ namespace StoreBL
         }
 
 
-
+        /// <summary>
+        /// Searches Customers by First and Last Name
+        /// </summary>
+        /// <param name="p_fname"></param>
+        /// <param name="p_lname"></param>
+        /// <returns>a list</returns>
         public List<Customers> SearchCustomersByName(string p_fname, string p_lname)
         {
         List<Customers> listofcustomers = _repo.GetAllCustomers();
@@ -31,13 +40,21 @@ namespace StoreBL
                     .Where(Customers => Customers.CLastName.Contains(p_lname))
                     .ToList(); 
         }
-
+        /// <summary>
+        /// Gtes All Customers
+        /// </summary>
+        /// <returns>A list</returns>
         public List<Customers> GetAllCustomers()
         {
             List<Customers> listofcustomers = _repo.GetAllCustomers();
             return listofcustomers;
         }
-
+        /// <summary>
+        /// Boolean returns True if Customer isAdmin
+        /// </summary>
+        /// <param name="p_email"></param>
+        /// <param name="p_pass"></param>
+        /// <returns></returns>
         public bool isAdmin(string p_email, string p_pass)
         {
             try

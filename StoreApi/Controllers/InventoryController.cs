@@ -24,7 +24,13 @@ namespace StoreApi.Controllers
             _custbl =  custbl;
         }
 
-        
+        /// <summary>
+        /// Adds Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns>Inv object</returns>
         [HttpPost("AddInventory")]
         public IActionResult AddInventory([FromQuery] Inventory p_inv, string email, string pass)
         {
@@ -49,7 +55,13 @@ namespace StoreApi.Controllers
 
         }
 
-        
+        /// <summary>
+        /// Updates Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         [HttpPut("UpdateInventory")]
         public IActionResult UpdateInventory([FromQuery] Inventory p_inv, string email, string pass)
         {
@@ -74,6 +86,11 @@ namespace StoreApi.Controllers
 
         }
 
+        /// <summary>
+        /// Searches Inventory By Location
+        /// </summary>
+        /// <param name="p_storeID"></param>
+        /// <returns></returns>
         [HttpGet("SearchInventoryByLocation")]
         public IActionResult SearchLocationInventory([FromQuery] int p_storeID)
         {

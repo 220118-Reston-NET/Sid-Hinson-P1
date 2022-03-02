@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should Get All StoreFronts
+    /// </summary>
     public class StoreFrontBLTest
     {
         [Fact]

@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should Get All Inventory
+    /// </summary>
     public class InventoryBLTest
     {
         [Fact]

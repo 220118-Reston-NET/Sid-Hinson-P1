@@ -10,8 +10,11 @@ namespace StoreDL
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
-
-
+        /// <summary>
+        /// Adds Orders
+        /// </summary>
+        /// <param name="p_ord"></param>
+        /// <returns>Orders Object</returns>
         public Orders AddOrders(Orders p_ord)
         {
 
@@ -51,15 +54,17 @@ namespace StoreDL
             foreach(var item in p_ord.OrderLineItems)
             {
                 item.OrderID = p_ord.OrderID;
+                item.StoreID = p_ord.OrderStoreID;
                 AddLineItems(item);
             }
             
-
+            //Put LineItems in Repo
             foreach(LineItems item in p_ord.OrderLineItems)
             {
 
                 using(SqlConnection con = new SqlConnection(_ConnectionStrings))
                 {
+                    //Uses LineItems in OrderLineitems to Insert Item in Inventory
                     con.Open();
                     SqlCommand command =  new SqlCommand(sqlQuery3, con);
                     command.Parameters.AddWithValue("@StoreID", item.StoreID);
@@ -74,7 +79,10 @@ namespace StoreDL
 
 
 
-
+        /// <summary>
+        /// Gets All Orders
+        /// </summary>
+        /// <returns>List of All Orders</returns>
         public List<Orders> GetAllOrders()
         {
             List<Orders> listoforders = new List<Orders>();
@@ -105,7 +113,11 @@ namespace StoreDL
 
         }
 
-
+        /// <summary>
+        /// Gets Orders History
+        /// </summary>
+        /// <param name="p_CustID"></param>
+        /// <returns>list of Orders</returns>
         public List<Orders> GetOrdersHistory(int p_CustID)
         {
             List<Orders> listoforders = new List<Orders>();
@@ -138,7 +150,11 @@ namespace StoreDL
             }
             return listoforders;
         }
-
+        /// <summary>
+        /// Gets Order History
+        /// </summary>
+        /// <param name="p_ordID"></param>
+        /// <returns></returns>
         public Orders GetOrderHistory(int p_ordID)
         {
             Orders orderhistory = new Orders();
@@ -189,11 +205,10 @@ namespace StoreDL
             
             return orderhistory;   
         }
-
-
-
-
-
+        /// <summary>
+        /// Gets All LineItems
+        /// </summary>
+        /// <returns>List of LineItems</returns>
         public List<LineItems> GetAllLineItems()
         {
             List<LineItems> listoflineitems = new List<LineItems>();
@@ -219,10 +234,11 @@ namespace StoreDL
                 }
             return listoflineitems;
         }  
-
-
-
-
+        /// <summary>
+        /// Adds LineItems
+        /// </summary>
+        /// <param name="p_line"></param>
+        /// <returns></returns>
         public LineItems AddLineItems(LineItems p_line)
         {
             string sqlQuery = @"insert into LineItems 

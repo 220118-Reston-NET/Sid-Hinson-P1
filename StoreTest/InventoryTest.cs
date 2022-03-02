@@ -10,6 +10,9 @@ namespace StoreTest
 
     public class InventoryTest
     {
+        /// <summary>
+        /// Should Set Valid Data
+        /// </summary>
         [Fact]
 
         public void Should_Set_Valid_Data()
@@ -29,7 +32,9 @@ namespace StoreTest
             
         }
 
-
+        /// <summary>
+        /// Should Update Data
+        /// </summary>
         [Fact]
 
         public void Should_Update_Data()

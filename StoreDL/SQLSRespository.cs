@@ -10,9 +10,11 @@ namespace StoreDL
             _ConnectionStrings = p_ConnectionStrings;
         }
 
-
-
-
+        /// <summary>
+        /// Adds StoreFronts
+        /// </summary>
+        /// <param name="p_store"></param>
+        /// <returns>StoreFront object</returns>
         public StoreFronts AddStoreFronts(StoreFronts p_store)
         {
             string sqlQuery = @"insert into StoreFronts 
@@ -30,9 +32,10 @@ namespace StoreDL
             return p_store;
         }
 
-
-
-
+        /// <summary>
+        /// List of All StoreFronts
+        /// </summary>
+        /// <returns>List storefronts</returns>
         public List<StoreFronts> GetAllStoreFronts()
         {
             List<StoreFronts> listofstorefronts = new List<StoreFronts>();
@@ -56,9 +59,11 @@ namespace StoreDL
             return listofstorefronts;
         }
 
-
-
-
+        /// <summary>
+        /// Gets Store History
+        /// </summary>
+        /// <param name="p_store"></param>
+        /// <returns>List of Store History</returns>
         public List<StoreFronts> GetStoreHist(int p_store)
         {
             List<StoreFronts> listofstorefronts = new List<StoreFronts>();

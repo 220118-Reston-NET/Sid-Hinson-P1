@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should grab All Orders
+    /// </summary>
     public class OrderBLTest
     {
         [Fact]

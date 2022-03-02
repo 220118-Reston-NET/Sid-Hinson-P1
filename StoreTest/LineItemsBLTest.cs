@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should Get All LineItems
+    /// </summary>
     public class LineItemsBLTest
     {
         [Fact]

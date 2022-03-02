@@ -10,10 +10,11 @@ namespace StoreDL
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
-
-
-
-
+        /// <summary>
+        /// Add Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <returns></returns>
         public Inventory AddInventory(Inventory p_inv)
         {
             string sqlQuery = @"insert into Inventory 
@@ -30,10 +31,10 @@ namespace StoreDL
             }
             return p_inv;
         }
-
-
-
-
+        /// <summary>
+        /// Gets All Inventory
+        /// </summary>
+        /// <returns></returns>
         public List<Inventory> GetAllInventory()
         {
             List<Inventory> listofinventory = new List<Inventory>();
@@ -55,10 +56,11 @@ namespace StoreDL
             }
             return listofinventory;
         }
-
-
-
-
+        /// <summary>
+        /// Updates Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <returns>Inventory Object</returns>
         public Inventory UpdateInventory(Inventory p_inv)
         {
             Console.WriteLine("Attempting to Update Inventory...............");

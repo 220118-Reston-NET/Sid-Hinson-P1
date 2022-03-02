@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should Add LineItems
+    /// </summary>
     public class LineItemsBLAddTest
     {
         [Fact]

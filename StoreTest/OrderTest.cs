@@ -10,6 +10,9 @@ namespace StoreTest
 
     public class OrderTest
     {
+        /// <summary>
+        /// Should Set Valid Order Data
+        /// </summary>
         [Fact]
 
         public void Should_Set_Valid_Data()
@@ -30,6 +33,9 @@ namespace StoreTest
             
         }
 
+        /// <summary>
+        /// Should Get Correct Order History
+        /// </summary>
         [Fact]
 
         public void Should_Get_Correct_Store_Orders_History()

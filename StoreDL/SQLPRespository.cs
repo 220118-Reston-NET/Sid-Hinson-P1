@@ -10,7 +10,11 @@ namespace StoreDL
         {
             _ConnectionStrings = p_ConnectionStrings;
         }
-
+        /// <summary>
+        /// Adds Products
+        /// </summary>
+        /// <param name="p_prod"></param>
+        /// <returns></returns>
         public Products AddProducts(Products p_prod)
         {
             string sqlQuery = @"insert into Products 
@@ -29,9 +33,10 @@ namespace StoreDL
             }
             return p_prod;
         }
-
-
-
+        /// <summary>
+        /// Gets All Products
+        /// </summary>
+        /// <returns></returns>
         public List<Products> GetAllProducts()
         {
             List<Products> listofproducts = new List<Products>();

@@ -20,7 +20,13 @@ namespace StoreApi.Controllers
             _custbl = p_custbl;
         }
         
-        
+        /// <summary>
+        /// Adds Customers
+        /// </summary>
+        /// <param name="p_cust"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns>Customer Object</returns>
         [HttpPost("AddCustomers")]
         public IActionResult AddCustomers([FromQuery] Customers p_cust, string email, string pass)
         {
@@ -46,7 +52,12 @@ namespace StoreApi.Controllers
 
         }
 
-        
+        /// <summary>
+        /// Searches For Customers
+        /// </summary>
+        /// <param name="CFirstName"></param>
+        /// <param name="CLastName"></param>
+        /// <returns></returns>
         [HttpGet("SearchCustomers")]
         public IActionResult GetCustomersByName(string CFirstName, string CLastName)
         {

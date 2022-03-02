@@ -23,7 +23,13 @@ namespace StoreApi.Controllers
             _custbl = custbl;
         }
 
-        
+        /// <summary>
+        /// Adds Products
+        /// </summary>
+        /// <param name="p_prod"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns>Product object</returns>
         [HttpPost("AddProducts")]
         public IActionResult AddProducts([FromQuery] Products p_prod, string email, string pass)
         {

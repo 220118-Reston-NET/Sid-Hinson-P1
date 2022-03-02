@@ -23,7 +23,13 @@ namespace StoreApi.Controllers
             _custbl = custbl;
         }
 
-        
+        /// <summary>
+        /// Adds StoreFronts
+        /// </summary>
+        /// <param name="p_store"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns>StoreFront Object</returns>
         [HttpPost("AddStoreFronts")]
         public IActionResult AddStoreFronts([FromQuery] StoreFronts p_store, string email, string pass)
         {

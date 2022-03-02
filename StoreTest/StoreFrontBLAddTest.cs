@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should Add StoreFronts
+    /// </summary>
     public class StoreFrontBLAddTest
     {
         [Fact]

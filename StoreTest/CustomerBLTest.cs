@@ -7,6 +7,9 @@ using Xunit;
 
 namespace StoreTest
 {
+    /// <summary>
+    /// Should Get All Customers
+    /// </summary>
     public class CustomerBLTest
     {
         [Fact]
