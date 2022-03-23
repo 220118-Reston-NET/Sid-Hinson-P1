@@ -78,3 +78,5 @@
 2022-03-02 10:30:05.137 -05:00 [INF] User is exiting the Program
 2022-03-03 21:58:06.096 -05:00 [INF] User is using the OpenAPI
 2022-03-03 22:00:08.321 -05:00 [INF] User is Adding an Order
+2022-03-23 15:34:52.998 -04:00 [INF] User is using the OpenAPI
+2022-03-23 15:39:03.223 -04:00 [INF] User is exiting the Program

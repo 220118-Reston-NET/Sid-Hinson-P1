@@ -1,6 +1,5 @@
 # Online Retro Gaming Store Shop Project1
 Concept : RESTful WEB API Deployed For Store Order Management Purposes
-Author : sid.hinson@revature.net
 
 - [Online Retro Gaming Store Shop Project#1](#online-retro-gaming-store-shop-project1)
   * [Technology Stack:](#technology-stack)
