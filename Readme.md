@@ -32,8 +32,16 @@ Author : sid.hinson@revature.net
 * View a location's inventory
 * Update inventory
 
+To-do list
+* Convert previous Console UI Project Code to HTML Structure for Frontend
+* Build Frontend UI For Web-Application
+* Add API Orchestration
+* Expand DB functionality, refine constraints
+* Expand Unit Testing
+
+
 ## Getting Started With Retro Gaming Store Shop Project
-The following CLI commands need to be entered on the command line of your choosing:
+The following CLI commands need to be entered on the command line of your choosing (Windows or Unix):
 
 Head to the  desired directory for placing the repo:
 ```bash
@@ -49,7 +57,12 @@ dotnet run
 ```
 
 ## Usage of Retro Gaming Store Shop Project
-To test that the Retro Gaming Store Shop API is working and see the functionality, the previous command line will generate a link for you to open in a local browser. Upon following the link, you may need to grant the appropriate permissions. API functionalities may then be tested there or a third party tool in an IDE like ThunderClient may be used.
+To test that the Retro Gaming Store Shop API is working and see the functionality, the previous command line will generate a link for you to open in a local browser. 
+```bash
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5056
+```
+Upon following the link, you may need to grant the appropriate permissions. API functionalities may then be tested there by adding "/swagger/index.html" to that generated link, or a third party tool in an IDE like ThunderClient may be also be used during live deployment functionalities--->[Original Live Deployment Link](https://retrostore.azurewebsites.net/store-api/). 
 
 ## Licensure
 MIT License
