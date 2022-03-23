@@ -2,7 +2,7 @@
 Concept : RESTful WEB API Deployed For Store Order Management Purposes
 
 - [Online Retro Gaming Store Shop Project#1](#online-retro-gaming-store-shop-project1)
-  * [Technology Stack:](#technology-stack)
+  * [Technology Stack](#technology-stack)
   * [Features](#features)
   * [Getting Started With Retro Gaming Store Shop Project](#getting-started-with-retro-gaming-store-shop-project)
   * [Usage of Retro Gaming Store Shop Project](#usage-of-retro-gaming-store-shop-project)
