@@ -116,15 +116,7 @@ namespace StoreDL
         /// Gets All Inventory
         /// </summary>
         /// <returns></returns>
-
-    }
-    
-
-
-
-        public interface ISqlInvRepository
-    {
-        /// <summary>
+                /// <summary>
         /// Adds Inventory to DB
         /// </summary>
         /// <param name="p_inv"></param>
@@ -141,6 +133,8 @@ namespace StoreDL
         /// <param name="p_inv"></param>
         /// <returns></returns>
         Inventory UpdateInventory(Inventory p_inv);
-
     }
+    
+
+
 }

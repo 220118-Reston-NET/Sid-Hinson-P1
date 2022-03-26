@@ -18,7 +18,24 @@ namespace StoreBL
         /// <returns>Order object</returns>
         public Orders AddOrders(Orders p_order)
         {
-            return _repo.AddOrders(p_order);
+            int counter = 0;
+            foreach(var item in p_order.OrderLineItems)
+            {
+                if(CheckInventory(item.ProductID, item.ProductQuantity) == false)
+                {
+                    counter += 1;
+                };
+            }
+            if(counter > 0)
+            {
+                Console.WriteLine("One or more of your items will exceed the database amounts. Please recheck your Order Totals or call us directly.");
+            }
+            else
+            {
+                return _repo.AddOrders(p_order);
+            }
+
+            return p_order;
         }
         /// <summary>
         /// Gets All Orders
@@ -76,6 +93,75 @@ namespace StoreBL
         public LineItems AddLineItems(LineItems p_line)
         {
             return _repo.AddLineItems(p_line);
+        }
+        /// <summary>
+        /// Adds Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <returns>Inventory Object</returns>
+        public Inventory AddInventory(Inventory p_inv)
+        {
+            Console.WriteLine("Adding Inventory............");
+            return _repo.AddInventory(p_inv);
+        }
+
+        /// <summary>
+        /// Searches Location Inventory
+        /// </summary>
+        /// <param name="p_storeID"></param>
+        /// <returns>A List</returns>
+        public List<Inventory> SearchLocationInventory(int p_storeID)
+        {
+            List<Inventory> listofInventory = _repo.GetAllInventory();
+            return listofInventory
+                    .Where(Inventory => Inventory.StoreID.Equals(p_storeID))
+                    .ToList(); //ToList method converts into return List collection
+        }
+
+        /// <summary>
+        /// Updates Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <returns>An inv object</returns>
+        public Inventory UpdateInventory(Inventory p_inv)
+        {
+            return _repo.UpdateInventory(p_inv);
+        }
+
+
+        /// <summary>
+        /// Gets All Inventory
+        /// </summary>
+        /// <returns></returns>
+        public List<Inventory> GetAllInventory()
+        {
+            List<Inventory> listofinventory = _repo.GetAllInventory();
+            return listofinventory;
+
+        }
+        /// <summary>
+        /// Boolean Check if there is enough Inventory
+        /// </summary>
+        /// <param name="p_storeid"></param>
+        /// <param name="prodid"></param>
+        /// <param name="p_quant"></param>
+        /// <returns></returns>
+        public Boolean CheckInventory(int prodid, int p_quant)
+        {
+            Boolean isValid = false;
+            List<Inventory> listofinventory = _repo.GetAllInventory();
+            foreach(var item in listofinventory)
+            {
+                if(prodid ==item.ProductID && p_quant <= item.ProductQuantity)
+                {
+                    isValid = true;
+                }
+                else
+                {
+                    isValid = false;
+                }
+            }
+            return isValid;
         }
 
     }

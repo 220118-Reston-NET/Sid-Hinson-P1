@@ -126,13 +126,7 @@ namespace StoreBL
         /// <param name="p_line"></param>
         /// <returns></returns>
         LineItems AddLineItems(LineItems p_line);
- }  
-
-
-
-        public interface IInventoryBL
-    {
-        /// <summary>
+                /// <summary>
         /// Adds Inventory to DB passing a Inventory obj
         /// </summary>
         /// <param name="p_inv"></param>
@@ -155,7 +149,13 @@ namespace StoreBL
         /// </summary>
         /// <returns></returns>
         List<Inventory> GetAllInventory();
+        /// <summary>
+        /// Check Inventory
+        /// </summary>
+        /// <returns></returns>
+        Boolean CheckInventory(int prodid, int p_quant);
+ }  
 
-    }
+
 }
 

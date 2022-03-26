@@ -1,0 +1,9 @@
+Server=tcp:revature-retrodb.database.windows.net,1433;Initial Catalog=RetroBarbarianDB;Persist Security Info=False;User ID=RetroDBAdmin;Password=Skidrow345!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+
+
+RetroDBAdmin
+Skidrow345!
+
+
+--------------------------------------------------------------------------------------------------------------------

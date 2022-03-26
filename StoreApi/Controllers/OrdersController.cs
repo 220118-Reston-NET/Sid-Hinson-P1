@@ -12,14 +12,14 @@ namespace StoreApi.Controllers
 {
     [Route("store-api/[controller]")]
     [ApiController]
-    public class OrdersController : ControllerBase
+    public class OrdersManagementController : ControllerBase
     {
 
         private readonly IOrdersBL _ordbl;
 
         private readonly ICustomersBL _custbl;
 
-        public OrdersController(IOrdersBL ordbl, ICustomersBL custbl)
+        public OrdersManagementController(IOrdersBL ordbl, ICustomersBL custbl)
         {
             _ordbl = ordbl;
             _custbl = custbl;
@@ -181,6 +181,91 @@ namespace StoreApi.Controllers
 
 
         }
+
+        /// <summary>
+        /// Adds Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns>Inv object</returns>
+        [HttpPost("AddInventory")]
+        public IActionResult AddInventory([FromQuery] Inventory p_inv, string email, string pass)
+        {
+            Log.Information("User is entering Credentials.");
+            if(_custbl.isAdmin(email,pass))
+            {
+                try
+                {   Log.Information("User is adding Inventory.");
+                    return Created("Success", _ordbl.AddInventory(p_inv));
+                }
+                catch (System.Exception)
+                {
+                    Log.Information("Displaying Bad Request to User.");
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                Log.Information("Displaying No Access Allowed for User.");
+                return StatusCode(401, "No access allowed for this User");
+            }
+
+        }
+
+        /// <summary>
+        /// Updates Inventory
+        /// </summary>
+        /// <param name="p_inv"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        [HttpPut("UpdateInventory")]
+        public IActionResult UpdateInventory([FromQuery] Inventory p_inv, string email, string pass)
+        {
+            Log.Information("User is entering Credentials.");
+            if(_custbl.isAdmin(email,pass))
+            {
+                try
+                {   Log.Information("User is updating Inventory.");
+                    return Ok(_ordbl.UpdateInventory(p_inv));
+                }
+                catch (System.Exception)
+                {
+                    Log.Information("Displaying Bad Request to User.");
+                    return BadRequest();
+                }
+            }
+            else
+            {   
+                Log.Information("Displaying No Access Allowed to User, status 401.");
+                return StatusCode(401, "No access allowed for this User");
+            }
+
+        }
+
+        /// <summary>
+        /// Searches Inventory By Location
+        /// </summary>
+        /// <param name="p_storeID"></param>
+        /// <returns></returns>
+        [HttpGet("SearchInventoryByLocation")]
+        public IActionResult SearchLocationInventory([FromQuery] int p_storeID)
+        {
+            try
+            {
+                Log.Information("Displaying Location Inventory to User.");
+                return Ok(_ordbl.SearchLocationInventory(p_storeID));
+            }
+            catch (System.Exception)
+            {
+                Log.Information("Displaying Bad Request to User.");
+                return BadRequest();
+            }
+
+
+        }
+
     
     }
 }

@@ -30,11 +30,6 @@ builder.Services.AddScoped<ICustomersBL, CustomersBL>();
 builder.Services.AddScoped<ISqloRepository>(repo => new SQLoRepository(builder.Configuration.GetConnectionString("Reference2DB")));
 builder.Services.AddScoped<IOrdersBL, OrdersBL>();
 
-//******INVENTORY
-//Provides an object out of the Inventory ISQL_InvREPO
-//The Dependency on the Implemented repo is the string; we need to add it to the appsettings and call on it
-builder.Services.AddScoped<ISqlInvRepository>(repo => new SQLInvRepository(builder.Configuration.GetConnectionString("Reference2DB")));
-builder.Services.AddScoped<IInventoryBL, InventoryBL>();
 
 //******Products
 //Provides an object out of the Products ISQL_PREPO
